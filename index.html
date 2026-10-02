@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Big Brain easy life — Suite RH & Contrats</title>
+
+  <!-- Typographie Haute Couture : Cormorant Garamond & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Bibliothèques CDN fiables et vérifiées -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+  <script>
+    if (typeof PDFLib === 'undefined') {
+      document.write('<script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"><\/script>');
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+  <style>
+    /* ==========================================================================
+       PALETTE STRICTE "HOLST" — DESIGN SYSTÈME ENTERPRISE PRO
+       - Deepest Navy : #0D1B2A
+       - Dark Navy    : #1B263B
+       - Steel Blue   : #415A77
+       - Muted Green  : #778D7A
+       - Sand         : #D4C4A8
+       - Cream        : #F4F1DE
+       ========================================================================== */
+    :root {
+      --deepest-navy: #0D1B2A;
+      --dark-navy: #1B263B;
+      --steel-blue: #415A77;
+      --muted-green: #778D7A;
+      --sand: #D4C4A8;
+      --sand-hover: #c9b798;
+      --sand-subtle: rgba(212, 196, 168, 0.16);
+      --sand-border: rgba(212, 196, 168, 0.22);
+      --cream: #F4F1DE;
+      --cream-card: #FAF8EE;
+
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --radius-xs: 4px;
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-pill: 9999px;
+
+      --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.2);
+      --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.35), 0 4px 12px -2px rgba(0, 0, 0, 0.2);
+      --shadow-button: 0 4px 14px -2px rgba(119, 141, 122, 0.45);
+      --shadow-button-hover: 0 6px 18px -2px rgba(65, 90, 119, 0.55);
+
+      --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--deepest-navy);
+      background-image: radial-gradient(circle at 50% 0%, #1a2738 0%, var(--deepest-navy) 75%);
+      background-attachment: fixed;
+      color: var(--deepest-navy);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==========================================================================
+       TOP APP BAR — NAVIGATION ENTERPRISE
+       ========================================================================== */
+    .top-navbar {
+      height: 60px;
+      background: rgba(13, 27, 42, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--sand-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.75rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      flex-shrink: 0;
+    }
+
+    .nav-brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--dark-navy);
+      border: 1px solid var(--sand-border);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sand);
+    }
+
+    .brand-text-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-primary-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+
+    .brand-secondary-name {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--sand);
+      letter-spacing: 0.04em;
+    }
+
+    .brand-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: var(--radius-xs);
+      background: rgba(119, 141, 122, 0.22);
+      color: #b7ceb9;
+      border: 1px solid rgba(119, 141, 122, 0.35);
+      margin-left: 0.4rem;
+    }
+
+    /* SEGMENTED SWITCHER PRO */
+    .service-nav {
+      display: inline-flex;
+      background: var(--dark-navy);
+      padding: 3px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--sand-border);
+      gap: 3px;
+    }
+
+    .nav-tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.5rem 1.15rem;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--sand);
+      transition: var(--transition);
+      opacity: 0.85;
+      white-space: nowrap;
+    }
+
+    .nav-tab-btn:hover {
+      opacity: 1;
+      color: var(--cream);
+      background: rgba(244, 241, 222, 0.08);
+    }
+
+    .nav-tab-btn.active {
+      background: var(--deepest-navy);
+      color: var(--cream);
+      opacity: 1;
+      border: 1px solid rgba(212, 196, 168, 0.35);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-tab-btn svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2;
+    }
+
+    /* SECURITY BADGE */
+    .top-nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .security-status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--sand);
+      background: rgba(27, 38, 59, 0.7);
+      padding: 5px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--sand-border);
+    }
+
+    .security-status-badge svg {
+      color: var(--muted-green);
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ==========================================================================
+       ESPACE DE TRAVAIL & VUES
+       ========================================================================== */
+    .app-workspace {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: 0;
+    }
+
+    .service-view {
+      display: none;
+      width: 100%;
+      flex: 1;
+    }
+
+    .service-view.active {
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ==========================================================================
+       MODULE 1 : DÉCOUPEUR DE BULLETINS DE PAIE (CARTE PRO)
+       ========================================================================== */
+    .payroll-container {
+      width: 100%;
+      max-width: 960px;
+      margin: 2.25rem auto 3rem;
+      padding: 0 1.5rem;
+      flex: 1;
+    }
+
+    .bespoke-card {
+      background: var(--cream-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--sand-border);
+      overflow: hidden;
+    }
+
+    .card-executive-header {
+      background: var(--dark-navy);
+      padding: 1.1rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--sand-border);
+    }
+
+    .header-title-box {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .header-icon-badge {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: rgba(65, 90, 119, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--sand);
+    }
+
+    .header-title-box h2 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .header-title-box p {
+      font-size: 0.78rem;
+      color: var(--sand);
+      opacity: 0.85;
+    }
+
+    .header-badge-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-xs);
+      background: rgba(212, 196, 168, 0.15);
+      color: var(--sand);
+      border: 1px solid var(--sand-border);
+    }
+
+    .card-body {
+      padding: 2rem 2.25rem;
+    }
+
+    /* ZONE DÉPÔT PRO */
+    .drop-zone {
+      border: 1.5px dashed rgba(65, 90, 119, 0.45);
+      border-radius: var(--radius-md);
+      padding: 2.75rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      background: rgba(212, 196, 168, 0.14);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .drop-zone:hover, .drop-zone.dragover {
+      border-color: var(--steel-blue);
+      background: rgba(212, 196, 168, 0.32);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px -4px rgba(13, 27, 42, 0.12);
+    }
+
+    .drop-zone input[type="file"] {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .drop-icon-wrap {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(65, 90, 119, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      color: var(--dark-navy);
+      transition: var(--transition);
+    }
+
+    .drop-zone:hover .drop-icon-wrap {
+      background: var(--dark-navy);
+      color: var(--cream);
+    }
+
+    .drop-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .drop-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--deepest-navy);
+      margin-bottom: 0.35rem;
+    }
+
+    .drop-hint {
+      font-size: 0.85rem;
+      color: var(--steel-blue);
+      font-weight: 500;
+    }
+
+    /* FICHIER CHARGÉ */
+    .file-details {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--dark-navy);
+      color: var(--cream);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.35rem;
+      margin-top: 1.25rem;
+      border: 1px solid var(--sand-border);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .file-details.visible {
+      display: flex;
+    }
+
+    .file-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .file-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--radius-sm);
+      background: var(--steel-blue);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .file-meta-name {
+      font-weight: 600;
+      color: var(--cream);
+      font-size: 0.92rem;
+      max-width: 440px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .file-meta-stats {
+      font-size: 0.78rem;
+      color: var(--sand);
+      margin-top: 0.15rem;
+    }
+
+    .btn-remove {
+      background: transparent;
+      border: 1px solid rgba(212, 196, 168, 0.2);
+      color: var(--sand);
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-remove:hover {
+      color: #FFFFFF;
+      background: rgba(239, 68, 68, 0.35);
+      border-color: rgba(239, 68, 68, 0.5);
+    }
+
+    /* OPTIONS DE SEGMENTATION */
+    .options-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    @media (max-width: 640px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-card {
+      border: 1.5px solid rgba(27, 38, 59, 0.14);
+      border-radius: var(--radius-md);
+      padding: 1rem 1.15rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+      background: #FFFFFF;
+    }
+
+    .option-card:hover {
+      border-color: var(--steel-blue);
+      background: rgba(212, 196, 168, 0.15);
+    }
+
+    .option-card.selected {
+      border-color: var(--dark-navy);
+      background: var(--dark-navy);
+      color: var(--cream);
+      box-shadow: 0 4px 12px rgba(13, 27, 42, 0.15);
+    }
+
+    .option-card.selected .option-title {
+      color: var(--cream);
+    }
+
+    .option-card.selected .option-desc {
+      color: var(--sand);
+      opacity: 0.9;
+    }
+
+    .option-card input[type="radio"] {
+      margin-top: 0.2rem;
+      accent-color: var(--muted-green);
+      cursor: pointer;
+    }
+
+    .option-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--deepest-navy);
+      margin-bottom: 0.2rem;
+    }
+
+    .option-desc {
+      font-size: 0.78rem;
+      color: var(--dark-navy);
+      opacity: 0.82;
+      line-height: 1.35;
+    }
+
+    /* CONFIGURATION STATIQUE ENTERPRISE */
+    .settings-card {
+      border: 1.5px solid rgba(27, 38, 59, 0.12);
+      border-radius: var(--radius-md);
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+
+    .settings-card-header {
+      background: rgba(212, 196, 168, 0.25);
+      padding: 0.8rem 1.25rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--dark-navy);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid rgba(27, 38, 59, 0.1);
+    }
+
+    .settings-card-header svg {
+      width: 16px;
+      height: 16px;
+      color: var(--steel-blue);
+    }
+
+    .settings-card-body {
+      padding: 1.25rem 1.35rem;
+      background: #FFFFFF;
+    }
+
+    .form-group {
+      margin-bottom: 1.15rem;
+    }
+
+    .form-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      color: var(--dark-navy);
+      margin-bottom: 0.35rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input[type="text"], .form-group select {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid rgba(27, 38, 59, 0.18);
+      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+      color: var(--deepest-navy);
+      font-family: var(--font-sans);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .form-group input[type="text"]:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--steel-blue);
+      box-shadow: 0 0 0 3px rgba(65, 90, 119, 0.15);
+    }
+
+    .input-hint {
+      font-size: 0.76rem;
+      color: var(--steel-blue);
+      margin-top: 0.35rem;
+    }
+
+    .input-hint code {
+      background: var(--sand-subtle);
+      color: var(--deepest-navy);
+      padding: 0.15rem 0.4rem;
+      border-radius: var(--radius-xs);
+      font-family: 'SFMono-Regular', Consolas, Menlo, monospace;
+      font-size: 0.85em;
+      border: 1px solid rgba(27, 38, 59, 0.1);
+    }
+
+    /* BOUTON D'ACTION PRINCIPAL PRO */
+    .btn-executive {
+      width: 100%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      padding: 1rem 1.75rem;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      border: none;
+      background-color: var(--muted-green);
+      color: var(--cream);
+      box-shadow: var(--shadow-button);
+      transition: var(--transition);
+    }
+
+    .btn-executive:hover:not(:disabled) {
+      background-color: var(--steel-blue);
+      box-shadow: var(--shadow-button-hover);
+      transform: translateY(-1px);
+      color: #FFFFFF;
+    }
+
+    .btn-executive:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    .btn-executive svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    /* SECTION DE PROGRESSION */
+    .progress-section {
+      display: none;
+      margin-top: 1.75rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(27, 38, 59, 0.1);
+    }
+
+    .progress-section.visible {
+      display: block;
+    }
+
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .progress-title {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--deepest-navy);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .progress-percentage {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark-navy);
+    }
+
+    .progress-bar-container {
+      width: 100%;
+      height: 6px;
+      background: rgba(27, 38, 59, 0.1);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      margin-bottom: 0.75rem;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--muted-green) 0%, var(--steel-blue) 100%);
+      border-radius: var(--radius-pill);
+      transition: width 0.2s ease;
+    }
+
+    .progress-status {
+      font-size: 0.78rem;
+      color: var(--steel-blue);
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-weight: 500;
+    }
+
+    .spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--sand);
+      border-top-color: var(--dark-navy);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* TABLEAU DE RÉSULTATS ENTERPRISE */
+    .results-table-container {
+      margin-top: 1.25rem;
+      max-height: 240px;
+      overflow-y: auto;
+      border: 1px solid rgba(27, 38, 59, 0.15);
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(13, 27, 42, 0.04);
+    }
+
+    table.results-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      text-align: left;
+    }
+
+    table.results-table th {
+      background: var(--dark-navy);
+      color: var(--sand);
+      padding: 0.7rem 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.7rem;
+      letter-spacing: 0.05em;
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid var(--sand-border);
+      z-index: 2;
+    }
+
+    table.results-table td {
+      padding: 0.6rem 0.9rem;
+      border-bottom: 1px solid rgba(27, 38, 59, 0.08);
+      color: var(--deepest-navy);
+    }
+
+    table.results-table tr:hover td {
+      background: rgba(212, 196, 168, 0.2);
+    }
+
+    .badge-status {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-xs);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-status.success {
+      background: rgba(119, 141, 122, 0.2);
+      color: #1a4220;
+    }
+
+    .badge-status.warning {
+      background: rgba(212, 196, 168, 0.55);
+      color: #5c441b;
+    }
+
+    /* ALERTE SUCCÈS */
+    .success-alert {
+      display: none;
+      background: var(--dark-navy);
+      color: var(--cream);
+      border: 1px solid var(--sand-border);
+      border-radius: var(--radius-md);
+      padding: 1.15rem 1.4rem;
+      margin-top: 1.5rem;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .success-alert.visible {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.25rem;
+    }
+
+    .success-left {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .btn-download-again {
+      background: var(--sand);
+      color: var(--deepest-navy);
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      border: none;
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+
+    .btn-download-again:hover {
+      background: var(--cream);
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       MODULE 2 : GÉNÉRATEUR DE CONTRATS CDI (FULL WORKSPACE STUDIO)
+       ========================================================================== */
+    .contract-app-container {
+      display: flex;
+      width: 100%;
+      height: calc(100vh - 60px);
+      overflow: hidden;
+      background: #111e2e;
+    }
+
+    /* SIDEBAR FORMULAIRE */
+    #sidebar {
+      width: 430px;
+      min-width: 400px;
+      max-width: 450px;
+      background: var(--cream-card);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid rgba(27, 38, 59, 0.18);
+      z-index: 20;
+      flex-shrink: 0;
+    }
+
+    .sidebar-header {
+      padding: 14px 20px;
+      background: var(--dark-navy);
+      color: var(--cream);
+      border-bottom: 1px solid var(--sand-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sidebar-header-left h2 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar-header-left p {
+      font-size: 0.72rem;
+      color: var(--sand);
+      margin-top: 2px;
+      opacity: 0.85;
+    }
+
+    .btn-reset-form {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      border-radius: var(--radius-xs);
+      background: rgba(212, 196, 168, 0.15);
+      color: var(--sand);
+      border: 1px solid var(--sand-border);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-reset-form:hover {
+      background: rgba(239, 68, 68, 0.25);
+      color: #FFFFFF;
+      border-color: rgba(239, 68, 68, 0.4);
+    }
+
+    .sidebar-content {
+      padding: 16px 20px;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .section-title {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--dark-navy);
+      margin: 16px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border-bottom: 1.5px solid var(--sand);
+      padding-bottom: 4px;
+    }
+
+    .section-title svg {
+      width: 14px;
+      height: 14px;
+      color: var(--steel-blue);
+      flex-shrink: 0;
+    }
+
+    .section-title:first-of-type {
+      margin-top: 0;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .form-row .form-group {
+      flex: 1;
+    }
+
+    #sidebar label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--dark-navy);
+      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    #sidebar input, #sidebar select {
+      width: 100%;
+      padding: 7px 9px;
+      font-size: 0.82rem;
+      border: 1px solid rgba(27, 38, 59, 0.2);
+      border-radius: var(--radius-xs);
+      background: #FFFFFF;
+      color: var(--deepest-navy);
+      transition: var(--transition);
+      font-family: var(--font-sans);
+    }
+
+    #sidebar input:focus, #sidebar select:focus {
+      outline: none;
+      border-color: var(--steel-blue);
+      box-shadow: 0 0 0 2px rgba(65, 90, 119, 0.18);
+    }
+
+    .sidebar-actions {
+      padding: 14px 20px;
+      background: rgba(212, 196, 168, 0.2);
+      border-top: 1px solid rgba(27, 38, 59, 0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-contract-print {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 16px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      border: none;
+      background: var(--muted-green);
+      color: var(--cream);
+      box-shadow: var(--shadow-button);
+      transition: var(--transition);
+    }
+
+    .btn-contract-print:hover {
+      background: var(--steel-blue);
+      box-shadow: var(--shadow-button-hover);
+      color: #FFFFFF;
+    }
+
+    /* ZONE DE VISUALISATION A4 */
+    #preview-area {
+      flex: 1;
+      background: #111e2e;
+      overflow-y: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .preview-toolbar {
+      position: sticky;
+      top: 0;
+      background: rgba(13, 27, 42, 0.94);
+      backdrop-filter: blur(10px);
+      padding: 7px 16px;
+      border-radius: var(--radius-sm);
+      color: var(--cream);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.78rem;
+      z-index: 10;
+      border: 1px solid var(--sand-border);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .preview-toolbar-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--sand);
+      font-weight: 600;
+    }
+
+    .btn-preview-export {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--sand);
+      color: var(--deepest-navy);
+      border: none;
+      padding: 5px 12px;
+      border-radius: var(--radius-xs);
+      font-weight: 600;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .btn-preview-export:hover {
+      background: var(--cream);
+    }
+
+    /* FORMAT FEUILLE STRICT A4 */
+    .contract-page {
+      width: 210mm;
+      min-height: 297mm;
+      height: 297mm;
+      padding: 20mm 22mm 18mm 22mm;
+      background: #FFFFFF;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #111111;
+      font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+      font-size: 9.7pt;
+      line-height: 1.45;
+      text-align: justify;
+      box-sizing: border-box;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .page-header {
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
+
+    .talent-force-logo-img {
+      height: 46px;
+      width: auto;
+      display: block;
+    }
+
+    .contract-title-box {
+      width: 100%;
+      border: 1.5px solid #000000;
+      padding: 6px 10px;
+      text-align: center;
+      font-size: 11pt;
+      font-weight: 800;
+      color: #0000cc;
+      letter-spacing: 0.5px;
+      margin-top: 14px;
+      margin-bottom: 22px;
+      box-sizing: border-box;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 1px solid transparent;
+      padding-top: 8px;
+      font-size: 6.8pt;
+      line-height: 1.35;
+      color: #002060;
+    }
+
+    .footer-col { flex: 1; }
+    .footer-col.center { text-align: left; padding-left: 20px; }
+    .footer-col.right { text-align: right; }
+    .footer-title { font-weight: bold; color: #002060; font-size: 7.2pt; }
+    .footer-link { font-weight: bold; color: #002060; font-size: 7.5pt; text-decoration: none; }
+
+    .page-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .article-title {
+      color: #0000cc;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      font-size: 9.8pt;
+    }
+
+    .sub-article-title {
+      color: #0000cc;
+      font-weight: bold;
+      margin-top: 8px;
+      margin-bottom: 3px;
+      font-size: 9.8pt;
+    }
+
+    .underlined-title {
+      color: #0000cc;
+      font-weight: bold;
+      text-decoration: underline;
+      margin-top: 10px;
+      margin-bottom: 6px;
+    }
+
+    ul.contract-bullets {
+      margin-left: 18px;
+      margin-bottom: 8px;
+      list-style-type: disc;
+    }
+
+    ul.contract-bullets li {
+      margin-bottom: 4px;
+    }
+
+    .party-block {
+      margin-bottom: 12px;
+    }
+
+    .employee-info-row {
+      display: flex;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .employee-info-label {
+      width: 190px;
+      min-width: 190px;
+      flex-shrink: 0;
+      display: inline-block;
+    }
+
+    .variable-highlight {
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .signature-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 28px;
+      padding: 0 10px;
+    }
+
+    .sig-col {
+      width: 46%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-size: 9.5pt;
+      line-height: 1.4;
+    }
+
+    .sig-title { font-weight: normal; margin-bottom: 2px; }
+    .sig-name { font-weight: bold; margin-bottom: 2px; }
+    .sig-mention-intro { font-weight: normal; margin-bottom: 2px; }
+    .sig-mention-quote { font-weight: normal; margin-bottom: 40px; }
+    .sig-mention-bottom { font-weight: normal; font-style: normal; }
+    .sig-company { margin-bottom: 2px; }
+    .sig-rep-label { font-weight: bold; margin-bottom: 2px; }
+    .sig-rep-name { font-weight: bold; margin-bottom: 2px; }
+    .sig-rep-title { font-weight: bold; }
+
+    footer.brand-footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--sand);
+      margin-top: 2rem;
+      padding-bottom: 1.5rem;
+      letter-spacing: 0.03em;
+      opacity: 0.8;
+    }
+
+    footer.brand-footer span.brand-mention {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      color: var(--cream);
+      font-weight: 600;
+    }
+
+    /* RÈGLES D'IMPRESSION HAUTE FIDÉLITÉ (7 PAGES EXACTES A4) */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 0;
+      }
+
+      html, body {
+        width: 210mm;
+        height: auto;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #FFFFFF !important;
+        overflow: visible !important;
+      }
+
+      .top-navbar, .preview-toolbar, #sidebar, footer.brand-footer, #view-bulletins, .no-print {
+        display: none !important;
+      }
+
+      #view-contrat {
+        display: block !important;
+        width: 100% !important;
+      }
+
+      .contract-app-container {
+        display: block !important;
+        height: auto !important;
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
+        overflow: visible !important;
+      }
+
+      #preview-area {
+        display: block !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: transparent !important;
+        overflow: visible !important;
+      }
+
+      .contract-page {
+        margin: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BARRE PRO ENTERPRISE (STICKY TOP) -->
+  <nav class="top-navbar no-print">
+    <div class="nav-brand-lockup">
+      <div class="brand-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+      </div>
+      <div class="brand-text-group">
+        <div class="brand-primary-name">Big Brain easy life</div>
+        <div class="brand-secondary-name">Executive HR Platform</div>
+      </div>
+      <span class="brand-badge">Enterprise</span>
+    </div>
+
+    <!-- SÉLECTEUR DE SERVICES RH SEGMENTÉ -->
+    <div class="service-nav">
+      <button type="button" class="nav-tab-btn active" id="tab-bulletins" onclick="switchService('bulletins')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="3" y1="9" x2="21" y2="9"></line>
+          <line x1="9" y1="21" x2="9" y2="9"></line>
+        </svg>
+        Segmentation Bulletins
+      </button>
+      <button type="button" class="nav-tab-btn" id="tab-contrat" onclick="switchService('contrat')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+        </svg>
+        Générateur Contrats CDI
+      </button>
+    </div>
+
+    <div class="top-nav-right">
+      <div class="security-status-badge" title="Toutes les opérations s'exécutent 100% dans votre navigateur, aucun document n'est transmis à un serveur distant">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        <span>Traitement 100% Local (RGPD)</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ESPACE DE TRAVAIL DES SERVICES RH -->
+  <div class="app-workspace">
+
+    <!-- ====================================================================
+         SERVICE 1 : DÉCOUPEUR DE BULLETINS DE PAIE
+         ==================================================================== -->
+    <section class="service-view active" id="view-bulletins">
+      <div class="payroll-container">
+        <main class="bespoke-card">
+          <!-- Bandeau Dark Navy Pro -->
+          <div class="card-executive-header">
+            <div class="header-title-box">
+              <div class="header-icon-badge">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+                </svg>
+              </div>
+              <div>
+                <h2>Segmentation des Bulletins de Paie</h2>
+                <p>Découpage par salarié, extraction nominative & compilation d'archive ZIP</p>
+              </div>
+            </div>
+            <div class="header-badge-tag">Moteur Spatial PDF</div>
+          </div>
+
+          <div class="card-body">
+            <!-- Zone Dépôt PDF -->
+            <div class="drop-zone" id="dropZone">
+              <input type="file" id="pdfFileInput" accept="application/pdf" />
+              <div class="drop-icon-wrap">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                </svg>
+              </div>
+              <div class="drop-title">Déposez votre document PDF global de paie ici</div>
+              <div class="drop-hint">Glissez-déposez le fichier ou cliquez pour parcourir vos dossiers locaux</div>
+            </div>
+
+            <!-- Fichier Chargé -->
+            <div class="file-details" id="fileDetails">
+              <div class="file-info">
+                <div class="file-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                  </svg>
+                </div>
+                <div>
+                  <div class="file-meta-name" id="fileName">-</div>
+                  <div class="file-meta-stats" id="fileStats">-</div>
+                </div>
+              </div>
+              <button class="btn-remove" id="btnRemoveFile" title="Retirer ce document">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Options -->
+            <div class="options-grid">
+              <label class="option-card selected" id="optCardSingle">
+                <input type="radio" name="splitMode" value="single" checked />
+                <div>
+                  <div class="option-title">1 page = 1 bulletin individuel</div>
+                  <div class="option-desc">Chaque page du document représente la fiche de paie d'un collaborateur unique.</div>
+                </div>
+              </label>
+              <label class="option-card" id="optCardMulti">
+                <input type="radio" name="splitMode" value="group" />
+                <div>
+                  <div class="option-title">Regrouper par salarié (multi-pages)</div>
+                  <div class="option-desc">Fusionne intelligemment les pages consécutives appartenant au même salarié.</div>
+                </div>
+              </label>
+            </div>
+
+            <!-- Paramètres Avancés (Statique Enterprise) -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="4" y1="21" x2="4" y2="14"></line>
+                  <line x1="4" y1="10" x2="4" y2="3"></line>
+                  <line x1="12" y1="21" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12" y2="3"></line>
+                  <line x1="20" y1="21" x2="20" y2="16"></line>
+                  <line x1="20" y1="12" x2="20" y2="3"></line>
+                  <line x1="1" y1="14" x2="7" y2="14"></line>
+                  <line x1="9" y1="8" x2="15" y2="8"></line>
+                  <line x1="17" y1="16" x2="23" y2="16"></line>
+                </svg>
+                <span>Format de Nommage & Paramètres d'Extraction</span>
+              </div>
+              <div class="settings-card-body" id="accordionContent">
+                <div class="form-group">
+                  <label for="customPrefixInput">Modèle de nom des fichiers générés :</label>
+                  <input type="text" id="customPrefixInput" value="Bulletins_Paie_[NOM]" placeholder="Ex: Bulletins_Paie_[NOM]" />
+                  <div class="input-hint">Le marqueur <code>[NOM]</code> sera remplacé par le nom du salarié (Ex : <code>Bulletins_Paie_NOM_PRENOM.pdf</code>).</div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label for="regexSelector">Moteur de détection employé :</label>
+                  <select id="regexSelector">
+                    <option value="auto" selected>Détection automatique adaptative (Recommandé - Spatial & Tableau)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bouton Traiter -->
+            <div class="actions">
+              <button class="btn-executive" id="btnProcess" disabled>
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span id="btnProcessText">Lancer la segmentation et générer le ZIP</span>
+              </button>
+            </div>
+
+            <!-- Progression & Journal -->
+            <div class="progress-section" id="progressSection">
+              <div class="progress-header">
+                <div class="progress-title">
+                  <div class="spinner"></div>
+                  <span id="progressTitle">Segmentation en cours...</span>
+                </div>
+                <div class="progress-percentage" id="progressPercentage">0%</div>
+              </div>
+              <div class="progress-bar-container">
+                <div class="progress-bar" id="progressBar"></div>
+              </div>
+              <div class="progress-status" id="progressStatus">
+                Initialisation de la structure PDF...
+              </div>
+
+              <!-- Tableau Résultats -->
+              <div class="results-table-container">
+                <table class="results-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 75px;">Page</th>
+                      <th>Collaborateur identifié</th>
+                      <th>Fichier individuel généré</th>
+                      <th style="width: 110px;">Statut</th>
+                    </tr>
+                  </thead>
+                  <tbody id="resultsTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Succès -->
+            <div class="success-alert" id="successAlert">
+              <div class="success-left">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--muted-green);">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <div>
+                  <strong id="successTitle" style="font-size: 1.1rem; color: var(--cream);">Segmentation exécutée avec succès</strong>
+                  <div style="font-size: 0.82rem; color: var(--sand); margin-top: 2px;">L'archive finale <strong>bulletins_de_paie.zip</strong> a été téléchargée sur votre poste.</div>
+                </div>
+              </div>
+              <button class="btn-download-again" id="btnDownloadAgain">Télécharger à nouveau</button>
+            </div>
+          </div>
+        </main>
+
+        <!-- PIED DE PAGE CORPORATE -->
+        <footer class="brand-footer no-print">
+          Propulsé par <span class="brand-mention">Big Brain easy life</span> • Suite RH & Contrats — Traitement Local Sécurisé
+        </footer>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SERVICE 2 : GÉNÉRATEUR DE CONTRATS CDI (TALENT FORCE / AIM HR)
+         ==================================================================== -->
+    <section class="service-view" id="view-contrat">
+      <div class="contract-app-container">
+        <!-- FORMULAIRE RH LATÉRAL -->
+        <aside id="sidebar" class="no-print">
+          <div class="sidebar-header">
+            <div class="sidebar-header-left">
+              <h2>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                Contrat CDI Maroc
+              </h2>
+              <p>AIM HR SASU • Talent Force • Format A4</p>
+            </div>
+            <button type="button" class="btn-reset-form" onclick="clearForm()" title="Réinitialiser tous les champs">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+              </svg>
+              Effacer
+            </button>
+          </div>
+
+          <div class="sidebar-content">
+            <form id="contractForm">
+              <!-- SALARIÉ -->
+              <div class="section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                Collaborateur
+              </div>
+              <div class="form-row">
+                <div class="form-group" style="flex: 0.8;">
+                  <label for="civilite">Civilité</label>
+                  <select id="civilite" onchange="updateContract()">
+                    <option value="Mr">Mr</option>
+                    <option value="Mme">Mme</option>
+                    <option value="Mlle">Mlle</option>
+                  </select>
+                </div>
+                <div class="form-group" style="flex: 2;">
+                  <label for="nom_prenom">Nom & Prénom</label>
+                  <input type="text" id="nom_prenom" placeholder="ex: Nom & Prénom" oninput="updateContract()">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nationalite">Nationalité</label>
+                  <input type="text" id="nationalite" placeholder="ex: Marocaine" oninput="updateContract()">
+                </div>
+                <div class="form-group">
+                  <label for="date_naissance">Date naissance</label>
+                  <input type="text" id="date_naissance" placeholder="JJ /MM/ AAAA" oninput="updateContract()">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="cin">N° CIN</label>
+                  <input type="text" id="cin" placeholder="ex: AA123456" oninput="updateContract()">
+                </div>
+                <div class="form-group">
+                  <label for="num_cnss">N° CNSS</label>
+                  <input type="text" id="num_cnss" placeholder="Facultatif (ex: 123456789)" oninput="updateContract()">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="adresse">Adresse de résidence</label>
+                <input type="text" id="adresse" placeholder="ex: N°, Rue, Quartier, Ville" oninput="updateContract()">
+              </div>
+
+              <!-- POSTE -->
+              <div class="section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+                </svg>
+                Poste & Mission
+              </div>
+              <div class="form-group">
+                <label for="fonction">Intitulé du Poste / Fonction</label>
+                <input type="text" id="fonction" placeholder="ex: Ingénieur QA junior" oninput="updateContract()">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="statut">Statut</label>
+                  <input type="text" id="statut" placeholder="ex: Employé(e), Cadre..." value="Employée" oninput="updateContract()">
+                </div>
+                <div class="form-group">
+                  <label for="date_debut">Date Début</label>
+                  <input type="text" id="date_debut" placeholder="JJ/MM/AAAA" oninput="updateContract()">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="periode_essai">Période d'essai</label>
+                  <input type="text" id="periode_essai" value="trois mois" oninput="updateContract()">
+                </div>
+                <div class="form-group">
+                  <label for="heures_hebdo">Heures / Semaine</label>
+                  <input type="number" id="heures_hebdo" value="44" oninput="updateContract()">
+                </div>
+              </div>
+
+              <!-- RÉMUNÉRATION -->
+              <div class="section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                  <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+                Rémunération (MAD / DHS)
+              </div>
+              <div class="form-group">
+                <label for="salaire_net">Salaire Net Mensuel (DHS)</label>
+                <input type="text" id="salaire_net" placeholder="ex: 10 000" oninput="onNetSalaryChange()">
+              </div>
+
+              <div class="form-group">
+                <label for="salaire_net_lettres">Montant en toutes lettres</label>
+                <input type="text" id="salaire_net_lettres" placeholder="Généré automatiquement ou saisie libre" oninput="updateContract()">
+              </div>
+
+              <div class="form-group">
+                <label for="salaire_base">Salaire Base Mensuel (DHS)</label>
+                <input type="text" id="salaire_base" placeholder="ex: 10317,19" oninput="updateContract()">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="prime_panier">Prime Panier (DHS)</label>
+                  <input type="text" id="prime_panier" value="500" oninput="updateContract()">
+                </div>
+                <div class="form-group">
+                  <label for="prime_transport">Prime Transport (DHS)</label>
+                  <input type="text" id="prime_transport" value="500" oninput="updateContract()">
+                </div>
+              </div>
+
+              <!-- SIGNATURE -->
+              <div class="section-title">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                </svg>
+                Signature & Clauses
+              </div>
+              <div class="form-group">
+                <label for="secteur_non_concurrence">Secteur Non-Concurrence</label>
+                <input type="text" id="secteur_non_concurrence" value="Rabat-Salé-Kénitra" oninput="updateContract()">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="ville_signature">Fait à</label>
+                  <input type="text" id="ville_signature" value="Rabat" oninput="updateContract()">
+                </div>
+                <div class="form-group">
+                  <label for="date_signature">Date signature</label>
+                  <input type="text" id="date_signature" placeholder="JJ/MM/AAAA" oninput="updateContract()">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="representant_societe">Représentant Employeur</label>
+                <input type="text" id="representant_societe" value="M. Theo Sanders" oninput="updateContract()">
+              </div>
+            </form>
+          </div>
+
+          <div class="sidebar-actions">
+            <button type="button" class="btn-contract-print" onclick="window.print()">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+              Imprimer / Sauvegarder en PDF
+            </button>
+          </div>
+        </aside>
+
+        <!-- ZONE D'APERÇU A4 DU CONTRAT -->
+        <main id="preview-area">
+          <div class="preview-toolbar no-print">
+            <div class="preview-toolbar-badge">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+              <span>Contrat CDI • 7 pages A4</span>
+            </div>
+            <span style="opacity: 0.35;">|</span>
+            <span style="color: var(--sand); opacity: 0.9;">Talent Force — AIM HR SASU</span>
+            <span style="opacity: 0.35;">|</span>
+            <button class="btn-preview-export" onclick="window.print()">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+              </svg>
+              Exporter PDF
+            </button>
+          </div>
+
+          <!-- PAGE 1 -->
+          <div class="contract-page" id="page-1">
+            <div class="page-header">
+              <img class="talent-force-logo-img" alt="Talent Force" />
+            </div>
+            <div class="page-body">
+              <div class="contract-title-box">CONTRAT DE TRAVAIL A DURÉE INDÉTERMINÉE</div>
+              <p>Entre les soussignés,</p>
+              <p class="party-block">
+                La société AIM HR SASU, ayant son siège social à Casablanca, 119 BD Abdelmoumen étage 2 N°15, immatriculée au Registre de Commerce de Casablanca sous le numéro 712829, titulaire de l’identifiant fiscal numéro 71786253, affiliée à la caisse nationale de la sécurité sociale sous le numéro 6699484 et représentée par son Président, monsieur Theo Sanders.<br>
+                Ci-après dénommée la société « l'employeur »<br>d’une part,
+              </p>
+
+              <div class="party-block">
+                <div class="employee-info-row">
+                  <span class="employee-info-label">Et</span>
+                  <span class="variable-highlight" id="lbl_civilite_nom">___________________________</span>
+                </div>
+                <div class="employee-info-row">
+                  <span class="employee-info-label">De nationalité</span>
+                  <span class="variable-highlight" id="lbl_nationalite">Marocaine</span>
+                </div>
+                <div class="employee-info-row">
+                  <span class="employee-info-label">Date de naissance</span>
+                  <span class="variable-highlight" id="lbl_date_naissance">__ / __ / ____</span>
+                </div>
+                <div class="employee-info-row">
+                  <span class="employee-info-label">Titulaire de la CIN N°</span>
+                  <span class="variable-highlight" id="lbl_cin">________</span>
+                </div>
+                <div class="employee-info-row" id="lbl_cnss_row" style="display: none;">
+                  <span class="employee-info-label">Titulaire du N° CNSS</span>
+                  <span class="variable-highlight" id="lbl_cnss"></span>
+                </div>
+                <div class="employee-info-row">
+                  <span class="employee-info-label">Et demeurant</span>
+                  <span class="variable-highlight" id="lbl_adresse">___________________________</span>
+                </div>
+                <p style="margin-top: 4px;">Ci-après dénommée le Salarié(e) « le Salarié(e) »<br>d’autre part,</p>
+              </div>
+
+              <p>Le Salarié(e) se déclare libre de tout engagement et s’interdit pendant la durée du présent contrat toute activité relative ou semblable à celle de l’entreprise directement ou indirectement ou toute action pouvant nuire à la société.</p>
+
+              <div class="article-title">Article 1 : OBJET DU CONTRAT</div>
+              <p>La société « AIM HR » engage le Salarié(e), qui accepte, un emploi à durée indéterminée à compter du « <span class="variable-highlight" id="lbl_date_debut">__/__/____</span> » et aura le statut <span class="variable-highlight" id="lbl_statut">Employée</span>.</p>
+              <p>Cet engagement sera définitif après une période d’essai de <span class="variable-highlight" id="lbl_periode_essai">trois mois</span> renouvelable une fois, sans qu’il soit nécessaire d’informer le Salarié(e) de ce renouvellement par écrit ou de requérir son accord, à moins que les parties en décident autrement.</p>
+              <p>Le statut de cadre assimilé est accordé en raison de l’autonomie du poste, et de la responsabilité du salarié par rapport à la mission qui lui est confiée.</p>
+
+              <div class="article-title">Article 2 - QUALIFICATIONS ET FONCTIONS</div>
+              <p>Le Salarié(e) est engagé par la société « AIM HR » en qualité d'<span class="variable-highlight" id="lbl_fonction">________________</span>. Le Salarié(e) pourra être amené en cas de besoin à exercer d’autres fonctions au moins égales à celles d'<span class="variable-highlight" id="lbl_fonction_2">________________</span> au sein de l’entreprise.</p>
+              <p>Une fiche descriptive de poste sera fournie au salarié. Les taches qu’elle mentionne ne sont ni définitives ni exhaustives. Elles sont appelées à évoluer en fonction des commandes des clients, du changement technologique et de la stratégie de la société.</p>
+            </div>
+
+            <div class="page-footer">
+              <div class="footer-col">
+                <div class="footer-title">AIM HR SASU</div>
+                119, Boulevard Abdelmoumen, Nr 15, 2e étage • 20042 Casablanca<br>
+                RC N°: 712829 - IF: 71786253 - ICE: 003860756000056
+              </div>
+              <div class="footer-col center">
+                <div class="footer-title">Talent Force Rabat</div>
+                Parc Technopolis Rabat Shore, Bâtiment B3, Plateau 301<br>
+                11103 Sala Al Jadida, Salé - MAROC
+              </div>
+              <div class="footer-col right">
+                <a class="footer-link" href="#">talentforce.jobs</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PAGE 2 -->
+          <div class="contract-page" id="page-2">
+            <div class="page-header">
+              <img class="talent-force-logo-img" alt="Talent Force" />
+            </div>
+            <div class="page-body">
+              <p>Un contrat d’objectifs et de performances annuels sera signé conjointement pour mesurer et assurer la mesure des performances réalisé par le Salarié(e).</p>
+
+              <div class="article-title">Article 3 - HORAIRES</div>
+              <p>Le Salarié(e) exerce une activité à temps complet. En conséquence, la durée hebdomadaire de travail sera de <span class="variable-highlight" id="lbl_heures_hebdo">44</span> heures.</p>
+              <p>Toutefois, pour certaines missions, il pourra être exigé du salarié de travailler moins. Il lui sera attribué un salaire mensuel complet avec les particularités suivantes :</p>
+              <ul class="contract-bullets">
+                <li>Les absences seront décomptées sur la base de l’horaire effectif ;</li>
+                <li>Les heures supplémentaires seront majorées à partir de la 45<sup>ème</sup> heure de travail. En dessous de 44 heures, les heures sont payées au tarif normal base 44 heures.</li>
+              </ul>
+              <p>En cas d’horaire inférieur à 44 heures, le Salarié(e) restera redevable des heures non effectuées ; lesquelles seront compensées lors des périodes en suractivité.</p>
+              <p>En raison de la nature de l’activité de la société, le Salarié(e) pourra être amené à travailler durant certains jours fériés marocains. Lesquels pourront être compensés avec les jours fériés du pays du client, ce qui implique qu'il ne pourra pas être demandé de majoration pour les jours fériés marocains travaillés puisqu'ils sont récupérés à travers les jours fériés du client.</p>
+              <p>La société peut décider également que si les jours fériés marocains sont travaillés, ils seront rémunérés en double et les jours fériés du client chômés non rémunérés.</p>
+
+              <div class="article-title">Article 4 – TELETRAVAIL</div>
+              <p>La société peut décider que le Salarié(e) travaille à distance à partir de son domicile.</p>
+              <p>En cas de changement de domicile, le Salarié(e) s’oblige à prévenir l’entreprise en lui indiquant sa nouvelle adresse.</p>
+              <p>Le Salarié(e) reste lié à l’entreprise dans les conditions normales de la législation du travail. Toutefois, l’adoption de la formule du télétravail permettra au salarié d’exercer ses fonctions dans une grande liberté d’exercice qui ne mettra pas en cause le lien de subordination inhérent à tout contrat de travail.</p>
+              <p>Le Salarié(e) devra impérativement être joignable par l’entreprise en communication directe tous les jours ouvrables aux heures précisées par l’employeur. En dehors de ces plages horaires, les communications pourront se faire dans le cadre de la messagerie, le Salarié(e) s’obligeant à la consulter fréquemment.</p>
+              <p>En outre, le Salarié(e) s’oblige à se rendre au siège de l’entreprise autant de fois que de besoin pour une réunion de travail au cours de laquelle il fera notamment le compte rendu de ses activités et recevra les instructions pour son travail.</p>
+
+              <div class="article-title">Article 5 – RÉMUNÉRATION ET OBJECTIFS</div>
+              <p>La société « AIM HR » versera au salarié, en contrepartie de ses services, une rémunération mensuelle nette de <span class="variable-highlight" id="lbl_salaire_net">_____</span> DHS (<span class="variable-highlight" id="lbl_salaire_net_lettres">________________ dirhams</span>).</p>
+              <p>Ce montant est calculé en tenant compte de l’absence actuelle de cotisations relatives aux régimes complémentaires de prévoyance (maladie et retraite). Dès la mise en place de ces régimes, les cotisations salariales correspondantes seront déduites, ce qui pourra entraîner une diminution du net à payer.</p>
+            </div>
+            <div class="page-footer">
+              <div class="footer-col"><div class="footer-title">AIM HR SASU</div>119, Bd Abdelmoumen, Casablanca</div>
+              <div class="footer-col center"><div class="footer-title">Talent Force Rabat</div>Technopolis Rabat Shore</div>
+              <div class="footer-col right"><a class="footer-link" href="#">talentforce.jobs</a></div>
+            </div>
+          </div>
+
+          <!-- PAGE 3 -->
+          <div class="contract-page" id="page-3">
+            <div class="page-header">
+              <img class="talent-force-logo-img" alt="Talent Force" />
+            </div>
+            <div class="page-body">
+              <p>La rémunération susvisée se compose des éléments suivants :</p>
+              <ul class="contract-bullets">
+                <li>Un salaire de base mensuel de <span class="variable-highlight" id="lbl_salaire_base">_____</span> DHS ;</li>
+                <li>Une prime de panier mensuelle de <span class="variable-highlight" id="lbl_prime_panier">500</span> DHS ;</li>
+                <li>Une prime de transport mensuelle de <span class="variable-highlight" id="lbl_prime_transport">500</span> DHS.</li>
+              </ul>
+              <p>Le Salarié(e) bénéficiera de l’immatriculation à la CNSS, de l'AMO (Assurance Maladie Obligatoire).</p>
+              <p>Une mutuelle assurance maladie et retraite complémentaires pourront être envisagées quand les conditions de leur mise en place seront réunies.</p>
+              <p>Le Salarié(e) pourra bénéficier de primes par objectifs et de rendement en fonction de la politique de motivation que la société mettra en place.</p>
+
+              <div class="article-title">Article 6 – LIEU DE TRAVAIL</div>
+              <p>Le Salarié(e) est engagé à travailler au siège social de « AIM HR », aussi siège, mais accepte d’ores et déjà tout déplacement ponctuel ou permanent dans l’intérêt de la société et selon les lieux où elle s’établira : Siège, annexes ou positions louées.</p>
+              <p>Le Salarié(e) sera amené à réaliser des déplacements sur le territoire Marocain ou à l’étranger pour le compte de notre société. Ces déplacements professionnels seront pris en charge par la société. Cette clause ne constitue cependant pas un élément qui modifie substantiellement le présent contrat de travail et pourra de ce fait, être modifié dans le cadre du territoire marocain, sous réserve d’un préavis d’une semaine.</p>
+              <p>Le refus de rejoindre son nouveau poste de travail suite à une mutation est considéré comme faute grave.</p>
+
+              <div class="article-title">Article 7 – CONGÉS PAYÉS</div>
+              <p>Le Salarié(e) bénéficiera des congés payés légaux, soit 18 jours pour une année complète de travail. Les dates sont fixées par le dirigeant au mieux des possibilités. Celles-ci peuvent être différentes d’une année sur l’autre. Le droit à congé n’est acquis qu’après 6 mois d’ancienneté dans la société.</p>
+
+              <div class="article-title">Article 8 – PROPRIÉTÉ INTELLECTUELLE</div>
+              <p>Le Salarié(e) accorde une cession automatique et irrévocable des droits patrimoniaux à l’employeur liés à la propriété intellectuelle sur les logiciels créés par le Salarié(e) dans l’exercice de ses fonctions ou sur instruction de l’employeur.</p>
+              <p>Le droit de propriété d’inventions brevetables ou non brevetables développés par le Salarié(e) dans le cadre de ses missions ou hors mission mais qui ont un lien avec l’entreprise est automatiquement et irrévocablement attribué à l’employeur.</p>
+            </div>
+            <div class="page-footer">
+              <div class="footer-col"><div class="footer-title">AIM HR SASU</div>119, Bd Abdelmoumen, Casablanca</div>
+              <div class="footer-col center"><div class="footer-title">Talent Force Rabat</div>Technopolis Rabat Shore</div>
+              <div class="footer-col right"><a class="footer-link" href="#">talentforce.jobs</a></div>
+            </div>
+          </div>
+
+          <!-- PAGE 4 -->
+          <div class="contract-page" id="page-4">
+            <div class="page-header">
+              <img class="talent-force-logo-img" alt="Talent Force" />
+            </div>
+            <div class="page-body">
+              <p>Les droits cédés incluent notamment tous les droits d’exploitation, de propriété intellectuelle tels que les droits de distribution, de reproduction, de traduction, de modification, d’adaptation, de communication publique, de vente, de location, de prêt.</p>
+              <p>Le Salarié(e) s’engage à ne pas exercer ses droits moraux sur lesdites propriétés intellectuelles et d’invention.</p>
+              <p>La rémunération de la cession de ces droits (propriété intellectuelle et propriété d’invention) est comprise dans la rémunération mentionnée à l’article 5.</p>
+
+              <div class="article-title">Article 9 – OUTILS NÉCESSAIRES AU TRAVAIL</div>
+              <p>Le Salarié(e) est informé qu’il ne peut refuser l’utilisation des outils nécessaires à l’accomplissement de son travail. C’est notamment l’utilisation de l’écran et éventuellement d’un casque auditif. Il ne peut utiliser son ordinateur ou téléphone personnel sur son poste de travail, sans autorisation de son supérieur.</p>
+              <p>Un tel refus ou agissement est systématiquement analysé comme faute grave avec ses conséquences juridiques.</p>
+              <p>La Société est amenée à confier au Salarié des échantillons, produits, matériels, plans, fichiers et documents divers, moyen de transport, en dépôt ou pour en faire un usage déterminé. Le Salarié(e) s’interdit expressément d’en faire un usage autre que celui autorisé par la Société et s’oblige à les présenter sur simple demande de la Société.</p>
+
+              <div class="article-title">Article 10 – EXCLUSIVITÉ</div>
+              <p>Pendant la durée du présent contrat, le Salarié(e) s’engage à consacrer l’essentiel de son temps et de son activité professionnelle à l’exécution de ses fonctions au sein de la société.</p>
+              <p>Le Salarié(e) s’interdit, pendant toute la durée du contrat, d’exercer directement ou indirectement, pour son propre compte ou pour le compte d’un tiers, toute activité concurrente à celle de la société ou susceptible de porter atteinte à ses intérêts, notamment en affectant sa disponibilité, ses performances ou la loyauté due à l’employeur.</p>
+
+              <div class="article-title">Article 11 – CONFIDENTIALITÉ</div>
+              <p>La Société a pour activité l’acquisition, la conception, la réalisation, la maintenance et la commercialisation de logiciels et de procédés informatiques. Ses Clients la soumettent à des obligations de confidentialité et de sécurité particulièrement strictes.</p>
+            </div>
+            <div class="page-footer">
+              <div class="footer-col"><div class="footer-title">AIM HR SASU</div>119, Bd Abdelmoumen, Casablanca</div>
+              <div class="footer-col center"><div class="footer-title">Talent Force Rabat</div>Technopolis Rabat Shore</div>
+              <div class="footer-col right"><a class="footer-link" href="#">talentforce.jobs</a></div>
+            </div>
+          </div>
+
+          <!-- PAGE 5 -->
+          <div class="contract-page" id="page-5">
+            <div class="page-header">
+              <img class="talent-force-logo-img" alt="Talent Force" />
+            </div>
+            <div class="page-body">
+              <div class="sub-article-title">11.1 Définition des Informations Confidentielles</div>
+              <p>Sont considérées comme informations confidentielles toutes les informations de quelque nature qu’elles soient (techniques, industrielles, économiques, financières, commerciales, etc.) et sous quelque forme que ce soit communiquées au Salarié par la Société, le Groupe ou le client final.</p>
+
+              <div class="sub-article-title">11.2 Confidentialité</div>
+              <p>Le Salarié(e) s’engage à préserver la stricte confidentialité des Informations transmises lors des missions qui lui seront attribuées. En conséquence, le Salarié(e) s’interdit de diffuser, publier ou divulguer à des tiers extérieurs à la mission tout ou partie des Informations sans l’autorisation expresse préalable et écrite de la Société.</p>
+
+              <div class="sub-article-title">11.3 Non-Exploitation</div>
+              <p>Le Salarié(e) s’engage à n’utiliser les Informations que dans l’exercice de ses missions. Il s’interdit d’en faire un usage personnel que ce soit directement, indirectement ou par personne interposée.</p>
+
+              <div class="sub-article-title">11.4 Propriété & Durée</div>
+              <p>Le client final conserve la propriété exclusive des Informations. L’engagement de confidentialité s’applique sans limitation de durée, y compris après la rupture du Contrat.</p>
+
+              <div class="article-title">Article 12.- NON-CONCURRENCE</div>
+              <p>Cette interdiction de concurrence est limitée aux secteurs géographiques suivants : <span class="variable-highlight" id="lbl_secteur_non_concurrence">Rabat-Salé-Kénitra</span> pour une durée de SIX MOIS à compter de la cessation du Contrat.</p>
+              <p>Pendant l’exécution de cette interdiction, la Société versera au Salarié une contrepartie pécuniaire mensuelle égale à 40% de la rémunération brute mensuelle moyenne des douze derniers mois.</p>
+            </div>
+            <div class="page-footer">
+              <div class="footer-col"><div class="footer-title">AIM HR SASU</div>119, Bd Abdelmoumen, Casablanca</div>
+              <div class="footer-col center"><div class="footer-title">Talent Force Rabat</div>Technopolis Rabat Shore</div>
+              <div class="footer-col right"><a class="footer-link" href="#">talentforce.jobs</a></div>
+            </div>
+          </div>
+
+          <!-- PAGE 6 -->
+          <div class="contract-page" id="page-6">
+            <div class="page-header">
+              <img class="talent-force-logo-img" alt="Talent Force" />
+            </div>
+            <div class="page-body">
+              <div class="article-title" style="margin-top:0;">Article 13 – CLAUSE DEDIT FORMATION</div>
+              <p>La Société prendra en charge les frais afférents aux stages de formation du Salarié et maintiendra en outre la totalité de sa rémunération et les frais afférents.</p>
+              <p>En contrepartie, si le Salarié(e) quitte la Société de sa propre initiative dans un délai de 12 mois à dater de la fin du dernier stage suivi, le Salarié(e) s’engage à rembourser à la Société les frais de formation selon un décompte dégressif (avant 6 mois: 100%, entre 6 et 12 mois: 50%, au-delà: 0%).</p>
+
+              <div class="article-title">Article 14- DROIT D’ACCÈS ET DE RECTIFICATION</div>
+              <p>Conformément à la loi 08-09 garantissant la protection des données personnelles et instituant la CNDP, les informations contenues dans le présent contrat font l’objet d’un traitement informatique destiné à établir le contrat de travail du salarié.</p>
+              <p>Vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent en vous adressant au service RH de la société « AIM HR ».</p>
+
+              <div class="article-title">Article 15- RUPTURE et PRÉAVIS</div>
+              <p>En cas de rupture du contrat de travail par l’une ou l’autre des parties, les dispositions légales devront être observées de part et d’autre.</p>
+              <div class="underlined-title">SANS INDEMNISATION (faute grave) :</div>
+              <ul class="contract-bullets">
+                <li>Faute grave du salarié : retards répétés et injustifiés, insubordination, sabotage…</li>
+                <li>Non-respect du règlement intérieur de la société.</li>
+              </ul>
+            </div>
+            <div class="page-footer">
+              <div class="footer-col"><div class="footer-title">AIM HR SASU</div>119, Bd Abdelmoumen, Casablanca</div>
+              <div class="footer-col center"><div class="footer-title">Talent Force Rabat</div>Technopolis Rabat Shore</div>
+              <div class="footer-col right"><a class="footer-link" href="#">talentforce.jobs</a></div>
+            </div>
+          </div>
+
+          <!-- PAGE 7 -->
+          <div class="contract-page" id="page-7">
+            <div class="page-header">
+              <img class="talent-force-logo-img" alt="Talent Force" />
+            </div>
+            <div class="page-body">
+              <div class="underlined-title" style="margin-top:0;">AVEC INDEMNISATION selon la loi ou accord des parties :</div>
+              <ul class="contract-bullets">
+                <li>Insuffisance professionnelle : incompétence, insuffisance des résultats…</li>
+                <li>Incident étranger à la volonté de la société « AIM HR » : problème technique, force majeure.</li>
+              </ul>
+              <p>La période de préavis est fixée comme suit :</p>
+              <ul class="contract-bullets">
+                <li>Pendant la première semaine d’essai : pas de préavis</li>
+                <li>Pendant la période d’essai : 8 jours</li>
+                <li>Durant la 1ère année : un mois • Entre 1 et 5 ans : deux mois • Plus de 5 ans : trois mois</li>
+              </ul>
+
+              <div class="article-title">Article 16- JURIDICTION</div>
+              <p>Pour toute contestation concernant l’exécution et l’interprétation des présentes, il est fait expressément attribution de juridiction à Casablanca.</p>
+              <p style="margin-top: 18px;">Fait en double exemplaire, à <span id="lbl_ville_signature">Rabat</span> le <span id="lbl_date_signature">__/__/____</span>.</p>
+
+              <!-- SIGNATURES -->
+              <div class="signature-grid">
+                <div class="sig-col">
+                  <div class="sig-title">Le Salarié(e)</div>
+                  <div class="sig-name" id="lbl_sig_salarie">Le Salarié(e)</div>
+                  <div class="sig-mention-intro">Pour signature, précédée de la mention</div>
+                  <div class="sig-mention-quote">“Lu et approuvé, Bon pour accord”</div>
+                  <div class="sig-mention-bottom">Lu et approuvé, Bon pour accord</div>
+                </div>
+
+                <div class="sig-col">
+                  <div class="sig-title">L’Employeur</div>
+                  <div class="sig-company">La société <strong>AIM HR SASU</strong></div>
+                  <div class="sig-rep-label">Représentée par :</div>
+                  <div class="sig-rep-name" id="lbl_sig_representant">M. Theo Sanders</div>
+                  <div class="sig-rep-title">Président</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="page-footer">
+              <div class="footer-col"><div class="footer-title">AIM HR SASU</div>119, Bd Abdelmoumen, Casablanca</div>
+              <div class="footer-col center"><div class="footer-title">Talent Force Rabat</div>Technopolis Rabat Shore</div>
+              <div class="footer-col right"><a class="footer-link" href="#">talentforce.jobs</a></div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- LOGIQUE JAVASCRIPT GLOBALE -->
+  <script>
+    /* ==========================================================================
+       0. LOGO TALENT FORCE EN VARIABLE COMMUNE (Économie de mémoire)
+       ========================================================================== */
+    const TALENT_FORCE_LOGO_BASE64 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI4AAAA1CAYAAACX8NO+AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABSYSURBVHhe7V15eF1FFX+igEjZN1kVARGrghu7n8guWykgtQWhRQUFtFZQVoVWlK0iFRFEpBasWJaKLPYDF5ameUuapW2Spk3SNHvb7OkGtnzH7zcnJzP3zL3v3ZekKdb88WuSuXPnzr1z5uxnmiCiRFx0d2+m9vZN1NGxyfzs6dlMus9g0dnJz2hv32yeo6+P4L0Br8FFbe1GeuihVXTFFSvohBMqae+9y2jnnUtol11K6UMfKqH99y+j44+voEsuqaHbbmuiv/2tk1at+k/sxV62bAM99tgauvrqlfTVry6jT35yCe22WymNGsXAc0aPXkJf+1oN/frXq2j16vhjj2DLwmsA3nyzhy68sJp22GEhJRKpPmQokShSQBuA60lKJNI0alQJnX56FT388GpqbX3HW+h16zbTb3+7mo47rpK2207G53ujn8F9dt65mO64o8kbcwTDD6/huutW9i0iFgsLh8V1IQuq293rTGy77lpC1167kqqqNpjFBjEdfPCivut4RrZxLN73PvkdRJQ0hKnnPYLhReCPU05ZSolEoVlQu1iAEJJwBCEQ4QbBa3qhd9mlhD7zmfK+cQC3D+6R8WUcF0Jk7j2FdNlltSPEsxXR/8tFF1X3EY27QCw+TjxxKf3kJ030zDMdVFDQS8XF6+jf/+6hp59up7vvbqHx42vpqKOWONwGC66JQ7cxYW2/fTEde2wljR+/gqZNa6Y//amN/vrXToNnn+2gqVOb6fjjK0PuT9M//tGdk3geeKCVvv71GvrmN+sUVoSA2ydNWkGXX15LRUVrc44fF1deuYJOOqmSzjijik48sZLmzesasrG3Bsw/Tz7Z1qdnuAuTomOPrTAEom+KwsKF6+j225voyCOFiFwi8XH77Y3U1RXPcvrFL5r7iYeRNAut+2lgkRKJBQ5Hi4sFNHt2W87x42Kffcr6NiY2Y6HR83Sf9xKee66THnusjWbObDc/m5qCholRVj/1KRYj7m7+xjcGJwruuadFLbSPk05aSnPmdMR+zqGHLnbGTNMpp+TWdc4+e1m/qMsPaXruufhzy4XDDsNmknmk6Q9/WDNkY28J7LprKSUSBX0MpYBeeCHIIRPTpjUa09pyiLQRDXqgfHHGGVgwV7ywzoLfg6IwZcTcL3/ZSvX1b0c+t6ZmI+2xB15GCCdFZ521PLK/AMTJHEf0KxalQZFp52JRSH/+c3vO8ePif41wjjgiON9584KSJwGTWyvCc+d2DuqlQARB0ZehAw9cRB/9qFhUmoBYif7gB4vpzDOX0bRpTfT00x30+uu99MYbvfTgg6vogAPA6l0OljJ6l362BhboBz+op1tuaaRbb200Y592WlVgLLgFJk2qpTvvbKJbbmmgm29uoBtuqKdFi9bnHD8u/tcI5+CDg9x9/vygvpcI6iJFtNNOxVRf7/tf4qKnZxMdeCAvMhNGEW2//UIqKVlnxvzZz5qNmc6EpUVZmIUV5BJCiDvuuJDgoNTPj4NHH13dN6adHzia7ueis3MT/epXrXTWWXBUltPo0eV08cU1NGsW60Hz5nUbYgPx3XRTg8et8iGcoqJ1dNttjXTaacvMc0aPriCIXHy7pUvZtRGGF17opB/9qMHM4cc/bjAGBtohcmHAYKyjjiqnU0+torvvbqa2tqDeUl6+3mys8eNrlI5aZIyF++5rMeO/9VYvKEcrsUVUWDhwa+Lxx9c4iwIkjRLs9mlsfIduuKGB9twTogd98UG1C8CHFXkp+t3vBq5cMke0hPOBDyw0lqLuJ3jppU768IexGUDsMl8h6CTBIj3mmApH+V1gFscdIw7hrF272SyQvKN9jt1M4I7f/369dy9w6aVYcOgl6F9oCOWCC5Y7GzE47332KaUFC3r7xwKxW7FuJQL/lPsKDKdPXHjhMtphh+KAjnPOOctCJxYH2CV2UTK0116lkaGCNWv+Y6iYfTz6Y7FOZE15tCUNRwRx6rHyQT6EA5eAzCmasHHdJfy0WTB3nFyEg/gcfwcQZ1GfV13enb+DbSukL395qTdfuBHkvYTbayIIIkV7713a7+G376r7Be/5+c+bKbF8+QY66CDoHkGr6vzzl1NjY7SyGoaGhrdpjz0ghqwC+93vrow1BvxDmBCI9vDDl5gdvvvupQYcE6s0fh48Q9+bL+ISTnX1RhNCkW9jF4N3rCV0/XHzJxyIwKBeyMR42GGL6WMfg77BRMDEAxTSFVcELV+XcOw4er5aPUjST3/KuqLlOC7xaY4z34hR80AEEH3nH4cMrr66jl55pcvoPZDz+uO6eOWVbvUhUwR/gO4XBy0t7xi9A9CyeLCISzggeq3kQx+CqHj22U56/PE2Ym+7Jp78COcvf8GCuYuVNi4S6BLS5403eujjH+cxLOdJB/xs4RynyGzeuXO7TKAYhCj6oszl5JOZe61Y8bbR46CrwTHL9/M43/72SoJuCD0rlVprXwyeTTfcEKTWjBERo0YV06OPRosJeGndBUFQsrJy6CyToUIcwunt3dzHiWWHFtGOOxbTP//pe6uxuYLEkx/hWD0E1zLG+tTPAOBzQ4aCXfgUXXXVilDCkbFmzgw6MbEJg/6wDO23XxnhfaUPuDrW2xJOmgoKlFXl/gFN3LIkX2kGG7vrrpbQlwJAqe4HgAne0ZGdW7z8cpexAqDlA62t2fsPBeIQjtlVfTtWPp6w9DCwt9yar3EJB1yc3RSWQCGqr7uuniZNqqOJEy3Qhm/qPgf+FnlGkHDSJsSh5wnge7vrBHXAza1asmS9RzieH0cP+vrrPcYiYHboykW8dJLmzIl2ik2cCIvAfpwjjyyP7CsYOxa7TTT5BYYd6j5DjTiE8+KLnX3vbdk19DA9lmDCBCwai7V8CKeqamNfG2O77WTBMFYY3A3Niw4jA2MFCSdFF1xQHTrf3/8elq/MJUN77hnkOIsXD4BwBBUVG+i++1pp3LgaOvrocpNgBfmYzY8AZS1fwkGQ1P3g2ozdEohDOC+91OURDjaVHkswbhze3e72uISzfPlGev/7eXyXgOxmzYYk7bZbSX+mpOY4550X7llnP9YWIhyN9evfDZ2Ei+uvl1wenhCLquwKNQhUiwQoaLrfUCIO4ZSUrPfm9b3vhftP2OkZFCFxCQe+myOOCOocUFahS8GDDxMZDjz8RIYliBeJdlCW//WvngAX1IRz7rlDRzjw4rtjeIMOBhzYtLITeTjZPLJCjNgZmJxVyDNGs6+rG7zpHYY4hAOwGWw94MBTT/kR87FjkZIiC5Ef4QAXX4z77XeD7yvKFQIr6u9/76JXX+0miNNMxiqtWlQNlHBKS9cZQ8AlHCThuWN4gw4Gs2dbs1IeiF0DTX7u3A6aNq3FmPfwEcEvs+++ZcZKYA8y3xO05oroc5+ryOkGyBdxCeeHP4Sx4JrjTDwglPvvX2VSSDgPySWa/AkH7g6+Jk5EtnSQmwRjAXncIBiIcZ63iKoC4/uScYaK42CzBzlOkfFnwYLD+r32Wrc/6GCAfBx5mHxo+II4+s4y2b649YjaD6bBPouBxqSiEJdwIGYPOYQDs9ZFwfOyyqp2qPH1fAgH4EVnImXDhHUcfDt2QorOI88o7Pe/BMcYPOEA2LDB95bN7DgAhxKuj8Ddpf7HjYOMCYcMNeFMn26j95gbFgpEr/sByeTaPrbtclIXeDfmFrYtZbiqO86hhwYJJyxswv4cTYzy/WR8XEuaZH/NidkXJ++VonPOCSecRx4RwmG1AJaZJpwXXxQuqLlpku66q9kfdKCAOEIecDSR8CR5AYJcR3MbYdeYJJLbxdwcKrAuBheA7OJMQFfQKCtbT1/4AnYg+sr8BRkTDT/1VAkZYMxCE0V3xzjgAHAuuZ6MDNJiUbCQ/rNwb5p2373ECxoLJkzA95f3KqTTTw+POf7mN4gUyFxStNNOJaE1coi2H364MALBAuN38wYdCODE4yQrVx9wiYDTNfDxx46tocmTGwheZsRGYC3YyUn/lGlDSmtb29DqNwBcCjNnrjHPh16G3GkEGXU/DUTJJ0+up/PPrzY+kptuaiRwJFxD2gjED8b64x/bjNWj78X74JlIxchmNGATQglHhci551bTeedV0zXXrDRzRihG9xdgLugTNQcBXAAyFzzn+eezZzrCGfrMM/hWSCVdQ0i/8DrlC5siqlmaIG1yg6MK9ZD1Jxo8E02ajj66grq7cy/kCLYevIZ8cPPNjX1cxo1vgYhcZTdpotr6XsEDDwjbZM4EZBMbI3hvwGuIC6NZO0Qj3AUxG056El0nZbzP+n4BFwBKyKGQPvEJG3sZKjz4YCshyQlWRy5ceWUtXXZZTX/G4gjC4TXEwcMPC5cIchZkwuF6MJkre/I7YjWQtZCzkM1Im9R9Bgv2f7gJ69mAeRfmlPv/7/AacgFiRCwkSzQpuuQSG1AbMwYpjEI4CD0s3qqLwGZulA6mwe8Gr6weZwQWXkMuHHMM0hvZMSREg5Mm3D6TJ0P8WMLZf/9FhJiMHmu44BKOK1Z5jiMcZyDwGrIB+ShBk5t1Gu0DQHmJ3eEZY6pHxV6GA0GOU2T8JOPGVZvE8AkTagKAPobY0ZYQmdsSvIYo4CyboNkcbQFxua4lHMSimpqi/Q9bGkHCSdNnP1sxoLngHeB/whEwX/lKlYkdwc8ChxichLq/AF7pG2+sp6lTm4y7fsYMG/1/4ok1dOmltSZpS3uCAUS/b7yxgVDgCN0Rz8V5RPA8xy2fhud9+vQWuuiiGnM/AF8UrF0kben+ceA1RCEYB2ERBXNc9wOmTAlmAoLjDEWS+UChCQelLLpPLsCji1RYfi9XxMnfXHsU5n+aMQMu/vl9/QtNxt+8eZ30+c9zPIgV96LAN2pufsfk04h3N+yZqEfPVYOOIkTUoEWNgedec03uGnwNryEM8HJKCY34amByaxEl4BRSy3Gg4+hYyHBCEw4CeLpPNrArX8eQNMCBk8adoEMkjzyCjDvrq0Lgl4kwnCtXVKw3NU/2nihw+CIqBMGEx3nkdo4SOnDbkvTFL1bktUZeQxjYZxPkNvffH51sxdUBluO8t6yqIpPNCHGDI+LAvgVg3zgSZeVKu/NR0RBWAcKLanetdYByANJ9vks4doxg0BK/S9iDA8VhkWn045iVHYsXXnOeiROl+MCNtmfooIMW0yGH2HIb152Sz4FVXkMYOOdEdlvG7IZsmX1nn+0mJqVNyazuM5wIt6pk0V3woiCRCffNn49SV9cTzjt2zJhqeuKJNnryyXbiiDTre+4iuIlPQY7jLnja5CMhqVzqz1B+EiRULsm5/vp6euqpdkMgfJCC+z5pEwxGFQTG4BJdXLcS4iMfgXi0J06k02sNgQeJJ+WVLkfBa9DgSbgsOmWCb7qfC/fF8BN1z7rPcCK+H4eDsQji4T4EFoPiIk1Q/PX4SOCX+2UhcRiVXNeEI4SGsbR4kIoHIS6Itbfe8oOVnHUox5CA0OabwCaucblOsn8MiMGo2jSUCdv1hWslPBVDw2vQYAtJuAfvuGwnYfX2bjJy3p2MW/uzNeBzHGH9Glz7LYQjO1KIJpsH/KqrsFj2O+HkDdTI45pPOGlT2KbHQDKZEJX0Q4m07gcgaHzrrU10xx3NdOedLTRlCiL1zCmDpToZU24zffoqmjq1xfSXe6C0H3ccNrn0ZSKLKtl24TVowNy0HyRjWGs2MQVFGrnG9uVRYup/pOGE1nHwcVCRgai9G6e6/HJOjRRdg2NudgPgSF49toDrru0CoHIBSd+4ppXjffcNd08ES3L4+4VlJmZDb++7tNdedt623AabIgyuNOFn1tX5c9PwGjT4FAYZPO0lKGnguI+gWEjRrFnx5OaWwkCsKhwGHqzkTJkcY91PwHXXQcIRH0mQcDKmlLe93d/VnHssRMNALozulw3r1r3bX+0pa+DqZ9nBelGcY268Bhc4xQAF/5Z75NZv2LtsWTbyecvK8ts1Qw1NOMj30X3CwOcHxrsPh4i774084eZmJg5NOKhPC8tPWrIEUJ25+OZUaY2/Dzwo+HIEXxzJJjJ8TSf/rSrt2RMHfprr3URMvoQSgFQcoNyGxgAhYW95rgTICr5S8NrcIHJ7bcf/AmWcKZMacg6ME4QtR+bd5fuM9wIEk7GFBjqPmHAu2rdJOz0DZw+LwvFuztFZ55pTdu4hAPwottSIWw8iEHdD6eX2pMlMHaBORUW12CBucoxxkgmw6tQX365m2bP7qA5czpp1qwOevXVISAcyGHI47iE4yp38gEH4pUcavgcJx7hgFPio2OxrcmaNimwUG7vvbfFiG5h8VFmbTjhhIsDHFsnfcWUBsaMWW4UZXAgPnEiaI7D9yNj+OuQMQ7HGTNWUVPT2yZUAe7CRxSLVYafbxKUfD2nMHgNLuAB5fIQK+ehROp+AnY6uZHztCke0/2GGwPlOIAf2OX34p0OuAsIJL3qgnDCCec4ACfGs9iz+on7TJe74Vqqn9sIcOSa7wBMmfAP6258nx0nReB2ei5R8Bo0giYpv7TuA8C5xJOzvox8JrIlMVCOI/jWt6TsxFX6LSxnSBpupIOPmnBQIRrFcQCYw+x0tcfO6GfKu2DBEUfTYwB8lh+e63JMUYRdp2bSzCmfylmvQYOdYKL08WT1f8QBpYtNcHeCyf6DFbc24Ep301OjiD8b4LFlQ0H7fhiI5UWJ8WCQM2nEf9h/kOICcUDrlfafh7FQCRKm/7hA8SGOawu7Hz/BjeCWCIvMZ4PXoIEid59CMyalAMfAoppQqBjXuU/SqzLcmoClgBABSmHgXYXZq/vEATgJykq+8506k+LwpS9VmSP8UadUWxu9W1GOgjQIPB+bCdaM7hOF8vINRjdBzdoJJ1SZ9Ap89+efjz8GvMY4YOnaa+tM/dfJJ1cZosQJXZWV0aePZIPXEAbI7Gg5b2W8yEoUjeH8PD3OCLYdeA1hABuDXsDEEyVzWVbiIGtx2Y9g24XXEAWcAWNLfEFArrxMmv8UDVaVzkUZwbYJryEXcEz9Qw+tNnIWuSpIa8SBkpDjuu8Itl38F9HwGTvZVToHAAAAAElFTkSuQmCC";
+
+    function switchService(serviceKey) {
+      document.querySelectorAll('.service-view').forEach(v => v.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-btn').forEach(b => b.classList.remove('active'));
+
+      if (serviceKey === 'contrat') {
+        document.getElementById('view-contrat').classList.add('active');
+        document.getElementById('tab-contrat').classList.add('active');
+        updateContract();
+      } else {
+        document.getElementById('view-bulletins').classList.add('active');
+        document.getElementById('tab-bulletins').classList.add('active');
+      }
+    }
+
+    /* ==========================================================================
+       MODULE 1 : DÉCOUPEUR DE BULLETINS (LOGIQUE INTACTE)
+       ========================================================================== */
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    const REGEX_CONFIG = {
+      tableauMatriculeFlexible: /(?:^|\s)\b[A-Z0-9\/\-]{1,10}\s+([A-ZÀ-ÿ][A-ZÀ-ÿ'\-]+(?:\s+[A-ZÀ-ÿ][A-ZÀ-ÿ'\-]+){0,5})\s+(?:\d{5,12}|[A-Z]{1,3}\s*\d{3,8}[A-Z]?|\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}|C[ée]libataire|Mari[ée]|Divorc[ée]|Veuf|Cadre|Employ[ée]|Ing[ée]nieur|Technicien|Agent|Directeur|Stagiaire|Consultant)\b/i,
+      tableauMatriculeSansCnss: /(?:^|\s)\b[A-Z0-9\/\-]{1,10}\s+([A-ZÀ-ÿ][A-ZÀ-ÿ'\-]+(?:\s+[A-ZÀ-ÿ][A-ZÀ-ÿ'\-]+){0,5})\s+(?:[\-]|\b0\b|\bN\/?A\b)?\s*(?:\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}|C[ée]libataire|Mari[ée]|Divorc[ée]|Veuf)/i,
+      nomPrenomHeader: /(?:Nom\s*(?:et|\/)\s*Pr[ée]nom\s*[:]?\s*)(?:[A-Z0-9\s]{0,20}?)([A-ZÀ-ÿ][A-ZÀ-ÿ'\-]+(?:\s+[A-ZÀ-ÿ][A-ZÀ-ÿ'\-]+){0,5})/i,
+      zoneHauteBulletin: /(?:P[ée]riode\s*:?[^\n\r]*?)\b[A-Z0-9\/\-]{1,10}\s+([A-ZÀ-ÿ][A-ZÀ-ÿ'\-]+(?:\s+[A-ZÀ-ÿ][A-ZÀ-ÿ'\-]+){0,5})\b/i,
+      civilite: /(?:M\.|Mme|Monsieur|Madame)\s+([A-ZÀ-ÿ][A-ZÀ-ÿ'\-]{2,35})/i,
+      nomLabel: /(?:Nom(?:\s*et\s*pr[ée]nom)?\s*[:]\s*)([A-ZÀ-ÿ][A-ZÀ-ÿ'\-]{2,35})/i,
+      salarieLabel: /(?:Salari[ée]|Employ[ée])\s*[:]\s*([A-ZÀ-ÿ][A-ZÀ-ÿ'\-]{2,35})/i
+    };
+
+    function isValidEmployeeName(name) {
+      if (!name || name.trim().length < 3) return false;
+      const upper = name.toUpperCase().replace(/_/g, ' ').trim();
+      const forbidden = [
+        'BULLETIN', 'PAIE', 'SALAIRE', 'BASE', 'RETENUE', 'MONTANT', 'TOTAL', 
+        'GAIN', 'NET', 'BRUT', 'COTISATION', 'CNSS', 'AMO', 'CUMUL', 'ANCIENNETE', 
+        'INDEMNITE', 'FONCTION', 'PERIODE', 'MATRICULE', 'RAISON', 'SOCIALE',
+        'EMPLOYEUR', 'JOURS', 'TAUX', 'VIREMENT', 'C.I.N', 'NAISSANCE', 'AVENIR',
+        'CASABLANCA', 'RABAT', 'SOUISSI', 'AIM HR', 'DATE', 'EDITION', 'PAGE'
+      ];
+      if (/^\d+$/.test(upper) || /^\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}$/.test(upper)) return false;
+      return !forbidden.some(word => upper === word || upper.startsWith(word + ' ') || upper.endsWith(' ' + word));
+    }
+
+    function sanitizeFileName(name) {
+      if (!name) return '';
+      return name
+        .replace(/[\\/:*?"<>|]/g, '')
+        .replace(/\s+/g, '_')
+        .replace(/^_+|_+$/g, '')
+        .trim();
+    }
+
+    function extractNameFromItems(items) {
+      if (!items || !items.length) return null;
+      const headerItem = items.find(it => /Nom\s*(?:et|\/)\s*Pr[ée]nom/i.test(it.str));
+      if (headerItem && headerItem.transform) {
+        const hX = headerItem.transform[4];
+        const hY = headerItem.transform[5];
+
+        const candidates = items.filter(it => {
+          if (!it.transform) return false;
+          const dy = hY - it.transform[5];
+          const dx = Math.abs(it.transform[4] - hX);
+          return dy >= 4 && dy <= 45 && dx <= 130 && it.str.trim().length >= 3;
+        });
+
+        for (const cand of candidates) {
+          const cleaned = sanitizeFileName(cand.str);
+          if (isValidEmployeeName(cleaned)) return cleaned;
+        }
+
+        const rowCandidates = items.filter(it => {
+          if (!it.transform) return false;
+          const dy = hY - it.transform[5];
+          return dy >= 5 && dy <= 35 && it.str.trim().length >= 3;
+        });
+        rowCandidates.sort((a, b) => a.transform[4] - b.transform[4]);
+
+        for (const it of rowCandidates) {
+          const text = it.str.trim();
+          if (!/^\d+$/.test(text) && !/^\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4}$/.test(text)) {
+            const cleaned = sanitizeFileName(text);
+            if (isValidEmployeeName(cleaned)) return cleaned;
+          }
+        }
+      }
+      return null;
+    }
+
+    function extractEmployeeName(pageText, items) {
+      if (items && items.length > 0) {
+        const spatialName = extractNameFromItems(items);
+        if (spatialName) return spatialName;
+      }
+
+      if (!pageText || typeof pageText !== 'string') return null;
+      const normalizedText = pageText.replace(/\r?\n+/g, ' ').replace(/\s+/g, ' ');
+
+      const priorityOrder = [
+        'tableauMatriculeFlexible',
+        'tableauMatriculeSansCnss',
+        'nomPrenomHeader',
+        'zoneHauteBulletin',
+        'civilite',
+        'nomLabel',
+        'salarieLabel'
+      ];
+
+      for (const key of priorityOrder) {
+        const rx = REGEX_CONFIG[key];
+        if (rx) {
+          const match = normalizedText.match(rx);
+          if (match && match[1]) {
+            const cleaned = sanitizeFileName(match[1]);
+            if (isValidEmployeeName(cleaned)) return cleaned;
+          }
+        }
+      }
+      return null;
+    }
+
+    const dropZone = document.getElementById('dropZone');
+    const pdfFileInput = document.getElementById('pdfFileInput');
+    const fileDetails = document.getElementById('fileDetails');
+    const fileNameEl = document.getElementById('fileName');
+    const fileStatsEl = document.getElementById('fileStats');
+    const btnRemoveFile = document.getElementById('btnRemoveFile');
+    const btnProcess = document.getElementById('btnProcess');
+    const btnProcessText = document.getElementById('btnProcessText');
+    const optCardSingle = document.getElementById('optCardSingle');
+    const optCardMulti = document.getElementById('optCardMulti');
+    const regexSelector = document.getElementById('regexSelector');
+    const customPrefixInput = document.getElementById('customPrefixInput');
+    const progressSection = document.getElementById('progressSection');
+    const progressBar = document.getElementById('progressBar');
+    const progressPercentage = document.getElementById('progressPercentage');
+    const progressTitle = document.getElementById('progressTitle');
+    const progressStatus = document.getElementById('progressStatus');
+    const resultsTableBody = document.getElementById('resultsTableBody');
+    const successAlert = document.getElementById('successAlert');
+    const successTitle = document.getElementById('successTitle');
+    const btnDownloadAgain = document.getElementById('btnDownloadAgain');
+
+    let currentFile = null;
+    let lastGeneratedZipBlob = null;
+    let totalPdfPages = 0;
+
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.add('dragover');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropZone.classList.remove('dragover');
+      });
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFileSelection(e.dataTransfer.files[0]);
+      }
+    });
+
+    pdfFileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files.length > 0) {
+        handleFileSelection(e.target.files[0]);
+      }
+    });
+
+    btnRemoveFile.addEventListener('click', resetFileState);
+
+    document.querySelectorAll('input[name="splitMode"]').forEach(radio => {
+      radio.addEventListener('change', () => {
+        optCardSingle.classList.toggle('selected', radio.value === 'single' && radio.checked);
+        optCardMulti.classList.toggle('selected', radio.value === 'group' && radio.checked);
+      });
+    });
+
+    async function handleFileSelection(file) {
+      if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
+        alert('Veuillez sélectionner un fichier au format PDF valide.');
+        return;
+      }
+      currentFile = file;
+      fileNameEl.textContent = file.name;
+      fileStatsEl.textContent = `Poids : ${(file.size / (1024 * 1024)).toFixed(2)} Mo — Analyse de structure...`;
+      fileDetails.classList.add('visible');
+      dropZone.style.display = 'none';
+      btnProcess.disabled = true;
+
+      try {
+        const countBuffer = await file.arrayBuffer();
+        const loadingTask = pdfjsLib.getDocument({ data: new Uint8Array(countBuffer) });
+        const pdf = await loadingTask.promise;
+        totalPdfPages = pdf.numPages;
+
+        fileStatsEl.textContent = `Poids : ${(file.size / (1024 * 1024)).toFixed(2)} Mo — Document de ${totalPdfPages} page(s)`;
+        btnProcess.disabled = false;
+      } catch (err) {
+        console.error('Erreur lecture PDF :', err);
+        alert('Impossible de lire le document PDF. Vérifiez qu’il ne comporte pas de mot de passe.');
+        resetFileState();
+      }
+    }
+
+    function resetFileState() {
+      currentFile = null;
+      totalPdfPages = 0;
+      pdfFileInput.value = '';
+      fileDetails.classList.remove('visible');
+      dropZone.style.display = 'block';
+      btnProcess.disabled = true;
+      progressSection.classList.remove('visible');
+      successAlert.classList.remove('visible');
+      resultsTableBody.innerHTML = '';
+    }
+
+    btnProcess.addEventListener('click', startExtraction);
+
+    async function startExtraction() {
+      if (!currentFile || totalPdfPages === 0) return;
+      if (typeof PDFLib === 'undefined' || typeof pdfjsLib === 'undefined' || typeof JSZip === 'undefined') {
+        alert("Une bibliothèque externe requise n'a pas pu être chargée. Vérifiez votre connexion.");
+        return;
+      }
+
+      btnProcess.disabled = true;
+      btnProcessText.textContent = 'Segmentation en cours...';
+      progressSection.classList.add('visible');
+      successAlert.classList.remove('visible');
+      resultsTableBody.innerHTML = '';
+      updateProgress(0, `Initialisation de la segmentation de ${totalPdfPages} pages...`);
+
+      const splitMode = document.querySelector('input[name="splitMode"]:checked').value;
+      const namingPattern = customPrefixInput.value.trim() || 'Bulletins_Paie_[NOM]';
+
+      try {
+        const [textBuffer, sliceBuffer] = await Promise.all([
+          currentFile.arrayBuffer(),
+          currentFile.arrayBuffer()
+        ]);
+
+        const pdfJsDoc = await pdfjsLib.getDocument({ data: new Uint8Array(textBuffer) }).promise;
+        const sourcePdfDoc = await PDFLib.PDFDocument.load(sliceBuffer);
+        const zip = new JSZip();
+
+        const bulletins = []; 
+        let currentBulletin = null;
+
+        for (let pageNum = 1; pageNum <= totalPdfPages; pageNum++) {
+          const pageIndex = pageNum - 1;
+          const percent = Math.round((pageNum / totalPdfPages) * 75);
+          updateProgress(percent, `Analyse spatiale & textuelle de la page ${pageNum}/${totalPdfPages}...`);
+
+          const page = await pdfJsDoc.getPage(pageNum);
+          const textContent = await page.getTextContent();
+          const pageText = textContent.items.map(item => item.str).join(' ');
+
+          const detectedName = extractEmployeeName(pageText, textContent.items);
+
+          if (splitMode === 'group') {
+            if (detectedName && (!currentBulletin || currentBulletin.name !== detectedName)) {
+              currentBulletin = {
+                name: detectedName,
+                pageIndices: [pageIndex],
+                isDefaultName: false
+              };
+              bulletins.push(currentBulletin);
+            } else if (currentBulletin) {
+              currentBulletin.pageIndices.push(pageIndex);
+            } else {
+              currentBulletin = {
+                name: `Page_${pageNum}`,
+                pageIndices: [pageIndex],
+                isDefaultName: true
+              };
+              bulletins.push(currentBulletin);
+            }
+          } else {
+            const finalName = detectedName || `Page_${pageNum}`;
+            bulletins.push({
+              name: finalName,
+              pageIndices: [pageIndex],
+              isDefaultName: !detectedName
+            });
+          }
+
+          addTableRow(
+            pageNum, 
+            detectedName || '<span style="color:var(--steel-blue);">Non détecté (Nom générique)</span>',
+            detectedName ? 'Identifié' : 'Avertissement',
+            !detectedName,
+            namingPattern
+          );
+
+          await new Promise(r => setTimeout(r, 0));
+        }
+
+        updateProgress(80, `Génération des ${bulletins.length} documents PDF haute fidélité...`);
+        const nameCount = {};
+
+        for (let i = 0; i < bulletins.length; i++) {
+          const item = bulletins[i];
+          const newDoc = await PDFLib.PDFDocument.create();
+
+          const copiedPages = await newDoc.copyPages(sourcePdfDoc, item.pageIndices);
+          copiedPages.forEach(p => newDoc.addPage(p));
+
+          const pdfBytes = await newDoc.save();
+
+          let baseName = namingPattern.replace(/\[NOM\]/g, item.name);
+          if (!baseName.toLowerCase().endsWith('.pdf')) {
+            baseName += '.pdf';
+          }
+
+          if (nameCount[baseName]) {
+            nameCount[baseName]++;
+            const extIndex = baseName.lastIndexOf('.pdf');
+            baseName = `${baseName.substring(0, extIndex)}_${nameCount[baseName]}.pdf`;
+          } else {
+            nameCount[baseName] = 1;
+          }
+
+          zip.file(baseName, pdfBytes);
+
+          const creationPercent = 75 + Math.round(((i + 1) / bulletins.length) * 15);
+          updateProgress(creationPercent, `Compilation du fichier ${i + 1}/${bulletins.length} (${baseName})...`);
+          await new Promise(r => setTimeout(r, 0));
+        }
+
+        updateProgress(92, 'Finalisation et compression de l’archive ZIP...');
+        const zipBlob = await zip.generateAsync(
+          { type: 'blob', compression: 'DEFLATE', compressionOptions: { level: 6 } },
+          (metadata) => {
+            const zipPercent = 90 + Math.round(metadata.percent * 0.1);
+            updateProgress(zipPercent, `Compression finale : ${Math.round(metadata.percent)}%...`);
+          }
+        );
+
+        lastGeneratedZipBlob = zipBlob;
+        updateProgress(100, 'Segmentation et génération terminées avec succès !');
+
+        const defaultZipName = `bulletins_de_paie_${new Date().toISOString().slice(0, 10)}.zip`;
+        triggerDownload(zipBlob, defaultZipName);
+
+        successTitle.textContent = `${bulletins.length} bulletin(s) extrait(s) avec succès`;
+        successAlert.classList.add('visible');
+
+      } catch (error) {
+        console.error('Erreur traitement :', error);
+        alert(`Une anomalie est survenue : ${error.message}`);
+        updateProgress(0, 'Une anomalie est survenue.');
+      } finally {
+        btnProcess.disabled = false;
+        btnProcessText.textContent = 'Lancer la segmentation et générer le ZIP';
+      }
+    }
+
+    function updateProgress(percentage, statusMessage) {
+      progressBar.style.width = `${percentage}%`;
+      progressPercentage.textContent = `${percentage}%`;
+      progressStatus.textContent = statusMessage;
+      if (percentage >= 100) {
+        progressTitle.textContent = 'Traitement achevé';
+      } else {
+        progressTitle.textContent = 'Segmentation en cours...';
+      }
+    }
+
+    function addTableRow(page, name, statusText, isWarning, namingPattern) {
+      const row = document.createElement('tr');
+      const badgeClass = isWarning ? 'badge-status warning' : 'badge-status success';
+      const pattern = namingPattern || 'Bulletins_Paie_[NOM]';
+      const cleanFileName = isWarning ? 
+        pattern.replace(/\[NOM\]/g, `Page_${page}`) + '.pdf' : 
+        pattern.replace(/\[NOM\]/g, name) + '.pdf';
+
+      row.innerHTML = `
+        <td><strong>P. ${page}</strong></td>
+        <td>${name}</td>
+        <td><code>${cleanFileName}</code></td>
+        <td><span class="${badgeClass}">${statusText}</span></td>
+      `;
+      resultsTableBody.appendChild(row);
+      const container = document.querySelector('.results-table-container');
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function triggerDownload(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }, 1000);
+    }
+
+    btnDownloadAgain.addEventListener('click', () => {
+      if (lastGeneratedZipBlob) {
+        triggerDownload(lastGeneratedZipBlob, 'bulletins_de_paie.zip');
+      }
+    });
+
+    /* ==========================================================================
+       MODULE 2 : GÉNÉRATEUR DE CONTRATS CDI (LOGIQUE INTACTE)
+       ========================================================================== */
+    function numberToFrenchWords(n) {
+      if (isNaN(n) || n === null || n === '') return '';
+      n = parseInt(n, 10);
+      if (n === 0) return 'zéro';
+
+      const units = ['', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix', 'onze', 'douze', 'treize', 'quatorze', 'quinze', 'seize', 'dix-sept', 'dix-huit', 'dix-neuf'];
+      const tens = ['', '', 'vingt', 'trente', 'quarante', 'cinquante', 'soixante', 'soixante-dix', 'quatre-vingt', 'quatre-vingt-dix'];
+
+      function convertUnder100(num) {
+        if (num < 20) return units[num];
+        const ten = Math.floor(num / 10);
+        const unit = num % 10;
+        if (ten === 7) {
+          if (unit === 1) return 'soixante-et-onze';
+          return 'soixante-' + units[10 + unit];
+        }
+        if (ten === 8) {
+          if (unit === 0) return 'quatre-vingts';
+          return 'quatre-vingt-' + units[unit];
+        }
+        if (ten === 9) {
+          return 'quatre-vingt-' + units[10 + unit];
+        }
+        if (unit === 1) return tens[ten] + '-et-un';
+        if (unit > 1) return tens[ten] + '-' + units[unit];
+        return tens[ten];
+      }
+
+      function convertUnder1000(num) {
+        let result = '';
+        const hundred = Math.floor(num / 100);
+        const remainder = num % 100;
+        if (hundred > 0) {
+          if (hundred === 1) {
+            result += 'cent';
+          } else {
+            result += units[hundred] + '-cent' + (remainder === 0 ? 's' : '');
+          }
+        }
+        if (remainder > 0) {
+          if (result) result += '-';
+          result += convertUnder100(remainder);
+        }
+        return result;
+      }
+
+      let words = '';
+      const thousands = Math.floor(n / 1000);
+      const rest = n % 1000;
+
+      if (thousands > 0) {
+        if (thousands === 1) {
+          words += 'mille';
+        } else {
+          words += convertUnder1000(thousands) + '-mille';
+        }
+      }
+
+      if (rest > 0) {
+        if (words) words += '-';
+        words += convertUnder1000(rest);
+      }
+
+      return words ? (words.charAt(0).toUpperCase() + words.slice(1)) : '';
+    }
+
+    function onNetSalaryChange() {
+      const rawInput = document.getElementById('salaire_net').value;
+      const cleaned = rawInput.replace(/dh[s]?/gi, '').replace(/\s+/g, '').replace(/\./g, '').replace(',', '.');
+      const num = parseFloat(cleaned);
+      if (!isNaN(num) && num > 0) {
+        const words = numberToFrenchWords(Math.round(num));
+        if (words) {
+          document.getElementById('salaire_net_lettres').value = words + ' dirhams';
+        }
+      }
+      updateContract();
+    }
+
+    function updateContract() {
+      const getVal = (id) => {
+        const el = document.getElementById(id);
+        return el ? el.value.trim() : '';
+      };
+
+      const civilite = getVal('civilite');
+      const nomPrenom = getVal('nom_prenom');
+
+      const nationalite = getVal('nationalite');
+      const dateNaissance = getVal('date_naissance');
+      const cin = getVal('cin');
+      const numCnss = getVal('num_cnss');
+      const adresse = getVal('adresse');
+
+      const fonction = getVal('fonction');
+      const statut = getVal('statut');
+      const dateDebut = getVal('date_debut');
+      const periodeEssai = getVal('periode_essai');
+      const heuresHebdo = getVal('heures_hebdo');
+
+      const salaireNet = getVal('salaire_net');
+      const salaireNetLettres = getVal('salaire_net_lettres');
+      const salaireBase = getVal('salaire_base');
+      const primePanier = getVal('prime_panier');
+      const primeTransport = getVal('prime_transport');
+
+      const nonConcurrence = getVal('secteur_non_concurrence');
+      const villeSignature = getVal('ville_signature');
+      const dateSignature = getVal('date_signature');
+      const representant = getVal('representant_societe');
+
+      const setTxt = (id, val) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = val;
+      };
+
+      setTxt('lbl_civilite_nom', (civilite ? civilite + ' ' : '') + (nomPrenom || '_____________'));
+      setTxt('lbl_nationalite', nationalite || 'Marocain');
+      setTxt('lbl_date_naissance', dateNaissance || '__ /__ / ____');
+      setTxt('lbl_cin', cin || '________');
+
+      const cnssRow = document.getElementById('lbl_cnss_row');
+      if (cnssRow) {
+        if (numCnss) {
+          cnssRow.style.display = 'flex';
+          setTxt('lbl_cnss', numCnss);
+        } else {
+          cnssRow.style.display = 'none';
+        }
+      }
+
+      setTxt('lbl_adresse', adresse || '___________________________');
+      setTxt('lbl_date_debut', dateDebut || '__/__/____');
+      setTxt('lbl_statut', statut || 'Employée');
+      setTxt('lbl_periode_essai', periodeEssai || 'trois mois');
+      setTxt('lbl_fonction', fonction || '________________');
+      setTxt('lbl_fonction_2', fonction || '________________');
+      setTxt('lbl_heures_hebdo', heuresHebdo || '44');
+
+      setTxt('lbl_salaire_net', salaireNet || '_____');
+      setTxt('lbl_salaire_net_lettres', salaireNetLettres || '________________ dirhams');
+      setTxt('lbl_salaire_base', salaireBase || '_____');
+      setTxt('lbl_prime_panier', primePanier || '500');
+      setTxt('lbl_prime_transport', primeTransport || '500');
+
+      setTxt('lbl_secteur_non_concurrence', nonConcurrence || 'Rabat-Salé-Kénitra');
+      setTxt('lbl_ville_signature', villeSignature || 'Rabat');
+      setTxt('lbl_date_signature', dateSignature || '__/__/____');
+
+      setTxt('lbl_sig_salarie', nomPrenom || 'Le Salarié');
+      setTxt('lbl_sig_representant', representant || 'M. Theo Sanders');
+    }
+
+    function clearForm() {
+      document.getElementById('contractForm').reset();
+      updateContract();
+    }
+
+    // Injection automatique du logo Talent Force sur les 7 pages
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.talent-force-logo-img').forEach(img => {
+        img.src = TALENT_FORCE_LOGO_BASE64;
+      });
+      updateContract();
+    });
+
+    window.addEventListener('beforeprint', () => {
+      const activeView = document.querySelector('.service-view.active');
+      if (activeView && activeView.id === 'view-contrat') {
+        const nomPrenom = document.getElementById('nom_prenom').value.trim();
+        document.title = nomPrenom ? ('CDI AIM - ' + nomPrenom) : 'CDI AIM';
+      }
+    });
+  </script>
+</body>
+</html>
