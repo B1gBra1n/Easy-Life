@@ -1294,6 +1294,606 @@
         page-break-inside: avoid !important;
         break-inside: avoid !important;
       }
+
+      /* RÈGLES D'IMPRESSION POUR MODULE 3 POINTAGE & BILAN */
+      #view-pointage.active {
+        display: block !important;
+        background: #FFFFFF !important;
+        color: #000000 !important;
+      }
+
+      #view-pointage .attendance-subnav,
+      #view-pointage .att-toolbar .btn-att-primary,
+      #view-pointage .att-toolbar .btn-att-secondary,
+      #view-pointage .att-toolbar .btn-att-success,
+      #view-pointage .att-no-print {
+        display: none !important;
+      }
+
+      #view-pointage .att-table-container {
+        box-shadow: none !important;
+        border: 1px solid #1B263B !important;
+      }
+
+      #view-pointage .att-table th,
+      #view-pointage .att-table td {
+        border: 1px solid #ddd !important;
+        color: #000 !important;
+      }
+    }
+
+    /* ==========================================================================
+       MODULE 3 : GESTION DES PRÉSENCES, HORAIRES & RETARDS (DESIGN SYSTÈME)
+       ========================================================================== */
+    .attendance-container {
+      width: 100%;
+      max-width: 1400px;
+      margin: 1.5rem auto 3rem;
+      padding: 0 1.25rem;
+    }
+
+    .attendance-subnav {
+      display: flex;
+      gap: 0.4rem;
+      background: var(--dark-navy);
+      padding: 0.6rem 1.5rem;
+      border-bottom: 1px solid var(--sand-border);
+      flex-wrap: wrap;
+    }
+
+    .att-subtab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.15rem;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--sand);
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      opacity: 0.9;
+    }
+
+    .att-subtab-btn:hover {
+      color: var(--cream);
+      background: rgba(212, 196, 168, 0.12);
+      opacity: 1;
+    }
+
+    .att-subtab-btn.active {
+      color: var(--cream);
+      background: var(--deepest-navy);
+      border-color: var(--sand-border);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+      opacity: 1;
+    }
+
+    .att-subtab-pane {
+      display: none;
+      animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .att-subtab-pane.active {
+      display: block;
+    }
+
+    /* KPI CARDS GRID */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .kpi-card {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(27, 38, 59, 0.12);
+      border-radius: var(--radius-md);
+      padding: 1.1rem 1.25rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+      border-color: var(--sand);
+    }
+
+    .kpi-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--steel-blue);
+    }
+
+    .kpi-card.kpi-green::before { background: #10B981; }
+    .kpi-card.kpi-orange::before { background: #F59E0B; }
+    .kpi-card.kpi-red::before { background: #EF4444; }
+    .kpi-card.kpi-navy::before { background: var(--dark-navy); }
+    .kpi-card.kpi-blue::before { background: #3B82F6; }
+
+    .kpi-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--steel-blue);
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .kpi-title svg {
+      width: 16px;
+      height: 16px;
+      opacity: 0.85;
+    }
+
+    .kpi-value {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--deepest-navy);
+      line-height: 1.1;
+    }
+
+    .kpi-subtext {
+      font-size: 0.74rem;
+      color: #64748b;
+      margin-top: 0.35rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* ATTENDANCE TOOLBAR */
+    .att-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+      padding: 1rem 1.25rem;
+      background: #FFFFFF;
+      border: 1.5px solid rgba(27, 38, 59, 0.1);
+      border-radius: var(--radius-md);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+
+    .att-toolbar-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .att-date-picker-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: #f8fafc;
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(27, 38, 59, 0.15);
+    }
+
+    .att-date-input {
+      padding: 0.45rem 0.65rem;
+      border: 1px solid rgba(27, 38, 59, 0.2);
+      border-radius: var(--radius-xs);
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--deepest-navy);
+      background: #FFFFFF;
+      outline: none;
+    }
+
+    .att-date-input:focus {
+      border-color: var(--steel-blue);
+      box-shadow: 0 0 0 2px rgba(65, 90, 119, 0.2);
+    }
+
+    .btn-att-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.85rem;
+      font-family: var(--font-sans);
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--dark-navy);
+      background: rgba(212, 196, 168, 0.22);
+      border: 1px solid var(--sand-border);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-att-secondary:hover {
+      background: var(--sand);
+      color: var(--deepest-navy);
+    }
+
+    .btn-att-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: var(--dark-navy);
+      border: 1px solid var(--deepest-navy);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(13, 27, 42, 0.2);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-att-primary:hover {
+      background: var(--steel-blue);
+      transform: translateY(-1px);
+    }
+
+    .btn-att-success {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.55rem 1.1rem;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: #10B981;
+      border: 1px solid #059669;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .btn-att-success:hover {
+      background: #059669;
+      transform: translateY(-1px);
+    }
+
+    /* ATTENDANCE TABLES */
+    .att-table-container {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(27, 38, 59, 0.12);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      margin-bottom: 1.5rem;
+    }
+
+    .att-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+      text-align: left;
+    }
+
+    .att-table th {
+      background: rgba(212, 196, 168, 0.22);
+      color: var(--dark-navy);
+      font-weight: 700;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.85rem 0.95rem;
+      border-bottom: 1.5px solid rgba(27, 38, 59, 0.12);
+      white-space: nowrap;
+    }
+
+    .att-table td {
+      padding: 0.75rem 0.95rem;
+      border-bottom: 1px solid rgba(27, 38, 59, 0.07);
+      vertical-align: middle;
+      color: var(--deepest-navy);
+    }
+
+    .att-table tbody tr:hover {
+      background: rgba(244, 241, 222, 0.35);
+    }
+
+    .att-table input[type="time"] {
+      padding: 0.35rem 0.5rem;
+      border: 1.5px solid rgba(27, 38, 59, 0.2);
+      border-radius: var(--radius-xs);
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      background: #FFFFFF;
+      color: var(--deepest-navy);
+      font-weight: 600;
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .att-table input[type="time"]:focus {
+      border-color: var(--steel-blue);
+      box-shadow: 0 0 0 2px rgba(65, 90, 119, 0.18);
+    }
+
+    .att-table select.att-select-status {
+      padding: 0.4rem 0.65rem;
+      border: 1.5px solid rgba(27, 38, 59, 0.2);
+      border-radius: var(--radius-xs);
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      background: #FFFFFF;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .att-table select.att-select-status:focus {
+      border-color: var(--steel-blue);
+    }
+
+    /* BADGES */
+    .badge-att {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .badge-att.present {
+      background: rgba(16, 185, 129, 0.12);
+      color: #065f46;
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .badge-att.absent {
+      background: rgba(239, 68, 68, 0.12);
+      color: #991b1b;
+      border: 1px solid rgba(239, 68, 68, 0.35);
+    }
+
+    .badge-att.conge {
+      background: rgba(65, 90, 119, 0.12);
+      color: #1e3a8a;
+      border: 1px solid rgba(65, 90, 119, 0.35);
+    }
+
+    .badge-att.ontime {
+      background: rgba(16, 185, 129, 0.12);
+      color: #047857;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .badge-att.late {
+      background: rgba(245, 158, 11, 0.18);
+      color: #9a3412;
+      border: 1px solid rgba(245, 158, 11, 0.45);
+      font-weight: 800;
+    }
+
+    .badge-att.critical-late {
+      background: rgba(239, 68, 68, 0.16);
+      color: #b91c1c;
+      border: 1px solid rgba(239, 68, 68, 0.45);
+      font-weight: 800;
+    }
+
+    .time-slot-preview {
+      display: inline-block;
+      font-family: monospace;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--steel-blue);
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: var(--radius-xs);
+    }
+
+    .day-pill {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      line-height: 20px;
+      text-align: center;
+      border-radius: 50%;
+      font-size: 0.62rem;
+      font-weight: 700;
+      margin-right: 2px;
+      background: #e2e8f0;
+      color: #64748b;
+    }
+
+    .day-pill.active {
+      background: var(--dark-navy);
+      color: var(--cream);
+    }
+
+    /* NOTIFICATION BANNER / ALERT */
+    .att-alert-box {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(245, 158, 11, 0.3);
+      border-left: 4px solid #F59E0B;
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: 0.82rem;
+    }
+
+    .att-alert-box.alert-success {
+      border-color: rgba(16, 185, 129, 0.3);
+      border-left-color: #10B981;
+    }
+
+    .att-alert-box.alert-info {
+      border-color: rgba(65, 90, 119, 0.3);
+      border-left-color: var(--steel-blue);
+    }
+
+    .att-alert-title {
+      font-weight: 700;
+      color: var(--deepest-navy);
+      margin-bottom: 2px;
+    }
+
+    .att-alert-desc {
+      color: #475569;
+    }
+
+    /* MODAL EMPLOYEE */
+    .att-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(13, 27, 42, 0.7);
+      backdrop-filter: blur(5px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      padding: 1rem;
+    }
+
+    .att-modal-overlay.visible {
+      display: flex;
+      animation: fadeIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .att-modal {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 45px rgba(0,0,0,0.4);
+      border: 1.5px solid var(--sand-border);
+    }
+
+    .att-modal-header {
+      background: var(--dark-navy);
+      color: var(--cream);
+      padding: 1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--sand-border);
+    }
+
+    .att-modal-header h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .att-modal-close {
+      background: transparent;
+      border: none;
+      color: var(--sand);
+      font-size: 1.3rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .att-modal-close:hover {
+      color: #fff;
+    }
+
+    .att-modal-body {
+      padding: 1.25rem 1.4rem;
+    }
+
+    .att-modal-footer {
+      padding: 0.9rem 1.4rem;
+      background: rgba(212, 196, 168, 0.15);
+      border-top: 1px solid rgba(27, 38, 59, 0.1);
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+    }
+
+    .days-picker {
+      display: flex;
+      gap: 0.4rem;
+      margin-top: 0.3rem;
+      flex-wrap: wrap;
+    }
+
+    .day-checkbox-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.65rem;
+      border-radius: var(--radius-xs);
+      border: 1.5px solid rgba(27, 38, 59, 0.2);
+      font-size: 0.76rem;
+      font-weight: 600;
+      cursor: pointer;
+      background: #f8fafc;
+      color: var(--dark-navy);
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .day-checkbox-label:hover {
+      border-color: var(--steel-blue);
+    }
+
+    .day-checkbox-label input[type="checkbox"] {
+      accent-color: var(--steel-blue);
+      margin: 0;
+    }
+
+    .day-checkbox-label.checked {
+      background: var(--dark-navy);
+      color: var(--cream);
+      border-color: var(--dark-navy);
+    }
+
+    /* SAVE NOTIFICATION TOAST */
+    .save-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.74rem;
+      font-weight: 600;
+      color: #059669;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .save-indicator.visible {
+      opacity: 1;
     }
   </style>
 </head>
@@ -1334,6 +1934,13 @@
           <line x1="16" y1="17" x2="8" y2="17"></line>
         </svg>
         Générateur Contrats CDI
+      </button>
+      <button type="button" class="nav-tab-btn" id="tab-pointage" onclick="switchService('pointage')">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        Suivi Présences & Retards
       </button>
     </div>
 
@@ -2023,6 +2630,465 @@
       </div>
     </section>
 
+    <!-- ====================================================================
+         SERVICE 3 : SUIVI DES PRÉSENCES, HORAIRES ET RETARDS (RH 3)
+         ==================================================================== -->
+    <section class="service-view" id="view-pointage">
+      <div class="attendance-container">
+        <main class="bespoke-card">
+          <!-- Bandeau Dark Navy Pro -->
+          <div class="card-executive-header">
+            <div class="header-title-box">
+              <div class="header-icon-badge">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <h2>Gestion des Présences, Horaires & Automatisation des Retards</h2>
+                <p>Référentiel du personnel, suivi quotidien des présences, détection des écarts & bilans mensuels</p>
+              </div>
+            </div>
+            <div class="header-badge-tag">Service RH 3 • Temps & Activités</div>
+          </div>
+
+          <!-- Sous-navigation interne par onglets -->
+          <div class="attendance-subnav att-no-print">
+            <button type="button" class="att-subtab-btn active" id="btn-subtab-dashboard" onclick="switchAttSubtab('dashboard')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+              Tableau de Bord
+            </button>
+            <button type="button" class="att-subtab-btn" id="btn-subtab-daily" onclick="switchAttSubtab('daily')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              Pointage Quotidien
+            </button>
+            <button type="button" class="att-subtab-btn" id="btn-subtab-employees" onclick="switchAttSubtab('employees')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+              Référentiel Salariés & Horaires
+            </button>
+            <button type="button" class="att-subtab-btn" id="btn-subtab-monthly" onclick="switchAttSubtab('monthly')">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+              </svg>
+              Bilan Mensuel & Exports
+            </button>
+          </div>
+
+          <div class="card-body" style="padding: 1.5rem 1.75rem;">
+
+            <!-- ==========================================
+                 SOUS-ONGLET 1 : TABLEAU DE BORD (DASHBOARD)
+                 ========================================== -->
+            <div id="att-pane-dashboard" class="att-subtab-pane active">
+              <!-- KPI CARDS -->
+              <div class="kpi-grid">
+                <div class="kpi-card kpi-navy">
+                  <div class="kpi-title">
+                    <span>Effectif Prévu Aujourd'hui</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  </div>
+                  <div class="kpi-value" id="kpi-scheduled-count">0</div>
+                  <div class="kpi-subtext" id="kpi-total-staff">sur 0 collaborateurs enregistrés</div>
+                </div>
+
+                <div class="kpi-card kpi-green">
+                  <div class="kpi-title">
+                    <span>Salariés Présents</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                  </div>
+                  <div class="kpi-value" id="kpi-present-count">0</div>
+                  <div class="kpi-subtext" id="kpi-present-rate">0% de présence effective</div>
+                </div>
+
+                <div class="kpi-card kpi-red">
+                  <div class="kpi-title">
+                    <span>Absences & Congés</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                  </div>
+                  <div class="kpi-value" id="kpi-absent-count">0</div>
+                  <div class="kpi-subtext" id="kpi-leave-detail">0 absent(s) • 0 en congé</div>
+                </div>
+
+                <div class="kpi-card kpi-orange">
+                  <div class="kpi-title">
+                    <span>Retards Constatés</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                  </div>
+                  <div class="kpi-value" id="kpi-late-count">0</div>
+                  <div class="kpi-subtext" id="kpi-late-rate">0% des salariés présents</div>
+                </div>
+
+                <div class="kpi-card kpi-blue">
+                  <div class="kpi-title">
+                    <span>Cumul Retard du Jour</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                  </div>
+                  <div class="kpi-value" id="kpi-late-minutes">0 min</div>
+                  <div class="kpi-subtext" id="kpi-late-hours">Équivalent à 0h 00m</div>
+                </div>
+              </div>
+
+              <!-- BANDEAU D'ALERTE DU JOUR -->
+              <div id="att-dashboard-alerts"></div>
+
+              <!-- APERÇU RAPIDE DU JOUR -->
+              <div class="settings-card" style="margin-bottom: 0;">
+                <div class="settings-card-header" style="justify-content: space-between;">
+                  <div style="display: flex; align-items: center; gap: 0.6rem;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Pointage & Statuts du Jour (<span id="dash-current-date-lbl">Aujourd'hui</span>)</span>
+                  </div>
+                  <button type="button" class="btn-att-primary" style="padding: 0.35rem 0.8rem; font-size: 0.74rem;" onclick="switchAttSubtab('daily')">
+                    Accéder à la saisie complète →
+                  </button>
+                </div>
+                <div class="settings-card-body" style="padding: 0;">
+                  <div class="att-table-container" style="border: none; border-radius: 0; margin-bottom: 0;">
+                    <table class="att-table">
+                      <thead>
+                        <tr>
+                          <th>Collaborateur</th>
+                          <th>Poste</th>
+                          <th>Horaires Prévisibles</th>
+                          <th>Statut du Jour</th>
+                          <th>Arrivée Réelle</th>
+                          <th>Pause Déjeuner</th>
+                          <th>Retard Constaté</th>
+                        </tr>
+                      </thead>
+                      <tbody id="dash-summary-table-body">
+                        <!-- Rempli dynamiquement -->
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ====================================================
+                 SOUS-ONGLET 2 : SUIVI QUOTIDIEN DES PRÉSENCES (POINTAGE)
+                 ==================================================== -->
+            <div id="att-pane-daily" class="att-subtab-pane">
+              <!-- BARRE D'OUTILS QUOTIDIENNE -->
+              <div class="att-toolbar">
+                <div class="att-toolbar-group">
+                  <div class="att-date-picker-wrap">
+                    <button type="button" class="btn-att-secondary" onclick="changeDailyDate(-1)" title="Jour précédent">◀</button>
+                    <input type="date" id="daily-date-picker" class="att-date-input" onchange="onDailyDateChange()" />
+                    <button type="button" class="btn-att-secondary" onclick="changeDailyDate(1)" title="Jour suivant">▶</button>
+                    <button type="button" class="btn-att-secondary" onclick="setDailyDateToday()">Aujourd'hui</button>
+                  </div>
+
+                  <span class="save-indicator" id="att-save-toast">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    Enregistré localement
+                  </span>
+                </div>
+
+                <div class="att-toolbar-group">
+                  <button type="button" class="btn-att-success" onclick="markAllPresentOnTime()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    ⚡ Pointer tout le monde à l'heure
+                  </button>
+                  <button type="button" class="btn-att-secondary" onclick="printDailyAttendance()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                    Imprimer la feuille du jour
+                  </button>
+                </div>
+              </div>
+
+              <!-- TABLE DE POINTAGE INTERACTIVE -->
+              <div class="att-table-container">
+                <table class="att-table">
+                  <thead>
+                    <tr>
+                      <th style="width: 220px;">Salarié</th>
+                      <th style="width: 150px;">Horaires Prévus</th>
+                      <th style="width: 130px;">Statut</th>
+                      <th style="width: 110px;">Arrivée Réelle</th>
+                      <th style="width: 190px;">Pause (Sortie - Retour)</th>
+                      <th style="width: 110px;">Départ Réel</th>
+                      <th style="width: 200px;">Écarts & Retards Détectés</th>
+                      <th style="width: 100px; text-align: center;">Pointage Rapide</th>
+                    </tr>
+                  </thead>
+                  <tbody id="daily-attendance-tbody">
+                    <!-- Rempli dynamiquement -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- ====================================================
+                 SOUS-ONGLET 3 : RÉFÉRENTIEL DU PERSONNEL & HORAIRES
+                 ==================================================== -->
+            <div id="att-pane-employees" class="att-subtab-pane">
+              <div class="att-toolbar">
+                <div class="att-toolbar-group">
+                  <input type="text" id="emp-search-input" placeholder="Rechercher par nom, prénom ou poste..." class="att-date-input" style="width: 280px;" oninput="renderEmployeesList()" />
+                  <span id="emp-count-badge" style="font-size: 0.8rem; font-weight: 600; color: var(--steel-blue);">0 collaborateur(s)</span>
+                </div>
+                <div class="att-toolbar-group">
+                  <button type="button" class="btn-att-primary" onclick="openEmployeeModal()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Ajouter un Collaborateur
+                  </button>
+                </div>
+              </div>
+
+              <!-- TABLEAU RÉFÉRENTIEL DU PERSONNEL -->
+              <div class="att-table-container">
+                <table class="att-table">
+                  <thead>
+                    <tr>
+                      <th>Collaborateur (Nom & Prénom)</th>
+                      <th>Matricule</th>
+                      <th>Poste / Fonction</th>
+                      <th>Jours de Travail Habituels</th>
+                      <th>Heure d'Arrivée Prévue</th>
+                      <th>Pause Déjeuner Normale</th>
+                      <th>Heure de Départ Prévue</th>
+                      <th style="text-align: right;">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="employees-table-tbody">
+                    <!-- Rempli dynamiquement -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- ====================================================
+                 SOUS-ONGLET 4 : BILAN MENSUEL & EXPORTS
+                 ==================================================== -->
+            <div id="att-pane-monthly" class="att-subtab-pane">
+              <div class="att-toolbar">
+                <div class="att-toolbar-group">
+                  <label for="monthly-month-select" style="font-size: 0.8rem; font-weight: 700; color: var(--dark-navy);">Mois de Paie :</label>
+                  <select id="monthly-month-select" class="att-date-input" onchange="renderMonthlyReport()" style="cursor: pointer;"></select>
+                  <select id="monthly-year-select" class="att-date-input" onchange="renderMonthlyReport()" style="cursor: pointer;"></select>
+                </div>
+
+                <div class="att-toolbar-group">
+                  <button type="button" class="btn-att-success" onclick="exportMonthlyCSV()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    Exporter Bilan CSV (Excel)
+                  </button>
+                  <button type="button" class="btn-att-primary" onclick="printMonthlyReport()">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+                    Imprimer le Bilan A4
+                  </button>
+                </div>
+              </div>
+
+              <!-- STATS MENSUELLES RÉCAP -->
+              <div class="kpi-grid">
+                <div class="kpi-card kpi-navy">
+                  <div class="kpi-title">Jours Ouvrables du Mois</div>
+                  <div class="kpi-value" id="month-kpi-workdays">0</div>
+                  <div class="kpi-subtext">Base de calcul standard</div>
+                </div>
+                <div class="kpi-card kpi-green">
+                  <div class="kpi-title">Total Jours Travaillés</div>
+                  <div class="kpi-value" id="month-kpi-worked">0</div>
+                  <div class="kpi-subtext">Cumul tous salariés</div>
+                </div>
+                <div class="kpi-card kpi-red">
+                  <div class="kpi-title">Total Absences</div>
+                  <div class="kpi-value" id="month-kpi-absences">0</div>
+                  <div class="kpi-subtext">Jours non travaillés</div>
+                </div>
+                <div class="kpi-card kpi-orange">
+                  <div class="kpi-title">Total Retards Constatés</div>
+                  <div class="kpi-value" id="month-kpi-lates-count">0</div>
+                  <div class="kpi-subtext">Occurrences sur le mois</div>
+                </div>
+                <div class="kpi-card kpi-blue">
+                  <div class="kpi-title">Cumul Minutes de Retard</div>
+                  <div class="kpi-value" id="month-kpi-total-minutes">0 min</div>
+                  <div class="kpi-subtext" id="month-kpi-total-hours">Soit 0h 00m</div>
+                </div>
+              </div>
+
+              <!-- TABLEAU DU BILAN MENSUEL PAR SALARIÉ -->
+              <div class="att-table-container">
+                <table class="att-table">
+                  <thead>
+                    <tr>
+                      <th>Collaborateur</th>
+                      <th>Poste</th>
+                      <th>Jours Théoriques</th>
+                      <th>Jours Travaillés</th>
+                      <th>Absences</th>
+                      <th>Congés</th>
+                      <th>Nb Retards</th>
+                      <th>Cumul Retards (Minutes)</th>
+                      <th>Taux Ponctualité</th>
+                      <th style="text-align: center;">Détails</th>
+                    </tr>
+                  </thead>
+                  <tbody id="monthly-report-tbody">
+                    <!-- Rempli dynamiquement -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Pied de page corporate local -->
+          <footer class="brand-footer att-no-print" style="margin-top: 1rem;">
+            Big Brain easy life • Service RH 3 : Gestion du Temps & Présences — Sauvegarde locale chiffrée navigateur
+          </footer>
+        </main>
+      </div>
+    </section>
+
+    <!-- MODAL COLLABORATEUR (AJOUT / MODIFICATION) -->
+    <div class="att-modal-overlay" id="employeeModalOverlay">
+      <div class="att-modal">
+        <div class="att-modal-header">
+          <h3 id="employeeModalTitle">Fiche Collaborateur & Horaires de Travail</h3>
+          <button type="button" class="att-modal-close" onclick="closeEmployeeModal()">&times;</button>
+        </div>
+        <div class="att-modal-body">
+          <form id="employeeForm" onsubmit="saveEmployee(event)">
+            <input type="hidden" id="emp-id" />
+
+            <div class="section-title" style="margin-top: 0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              1. Identité du Collaborateur
+            </div>
+
+            <div class="form-row">
+              <div class="form-group" style="flex: 1;">
+                <label for="emp-nom">Nom de famille *</label>
+                <input type="text" id="emp-nom" required placeholder="ex: BENNANI" />
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label for="emp-prenom">Prénom *</label>
+                <input type="text" id="emp-prenom" required placeholder="ex: Sara" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group" style="flex: 1.2;">
+                <label for="emp-poste">Fonction / Poste *</label>
+                <input type="text" id="emp-poste" required placeholder="ex: Chargée de Ressources Humaines" />
+              </div>
+              <div class="form-group" style="flex: 0.8;">
+                <label for="emp-matricule">Matricule / Code RH</label>
+                <input type="text" id="emp-matricule" placeholder="ex: EMP-042" />
+              </div>
+            </div>
+
+            <div class="section-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              2. Jours de Travail Habituels
+            </div>
+            <p style="font-size: 0.74rem; color: #64748b; margin-bottom: 0.4rem;">Sélectionnez les jours où le collaborateur est contractuellement censé être présent :</p>
+            <div class="days-picker" id="emp-days-container">
+              <label class="day-checkbox-label"><input type="checkbox" value="1" checked /> Lundi</label>
+              <label class="day-checkbox-label"><input type="checkbox" value="2" checked /> Mardi</label>
+              <label class="day-checkbox-label"><input type="checkbox" value="3" checked /> Mercredi</label>
+              <label class="day-checkbox-label"><input type="checkbox" value="4" checked /> Jeudi</label>
+              <label class="day-checkbox-label"><input type="checkbox" value="5" checked /> Vendredi</label>
+              <label class="day-checkbox-label"><input type="checkbox" value="6" /> Samedi</label>
+              <label class="day-checkbox-label"><input type="checkbox" value="0" /> Dimanche</label>
+            </div>
+
+            <div class="section-title" style="margin-top: 1.25rem;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              3. Horaires de Travail Normaux (Définis une seule fois)
+            </div>
+            <p style="font-size: 0.74rem; color: #64748b; margin-bottom: 0.6rem;">Ces horaires serviront de référence automatique pour calculer la ponctualité et les retards :</p>
+
+            <div class="form-row">
+              <div class="form-group" style="flex: 1;">
+                <label for="emp-normal-arrival">Heure d'arrivée normale *</label>
+                <input type="time" id="emp-normal-arrival" required value="09:00" />
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label for="emp-normal-departure">Heure de départ normale *</label>
+                <input type="time" id="emp-normal-departure" required value="18:00" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group" style="flex: 1;">
+                <label for="emp-lunch-start">Sortie pause déjeuner *</label>
+                <input type="time" id="emp-lunch-start" required value="12:30" />
+              </div>
+              <div class="form-group" style="flex: 1;">
+                <label for="emp-lunch-end">Retour pause déjeuner *</label>
+                <input type="time" id="emp-lunch-end" required value="13:30" />
+              </div>
+            </div>
+            <p style="font-size: 0.72rem; color: var(--steel-blue); font-style: italic; margin-top: 2px;">
+              Pause repas standard calculée : <strong id="emp-lunch-duration-preview">1h 00m</strong>
+            </p>
+
+            <div class="att-modal-footer" style="margin: 1.25rem -1.4rem -1.4rem; padding: 0.9rem 1.4rem;">
+              <button type="button" class="btn-att-secondary" onclick="closeEmployeeModal()">Annuler</button>
+              <button type="submit" class="btn-att-primary">Enregistrer le Collaborateur</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL DÉTAILS DES RETARDS D'UN SALARIÉ -->
+    <div class="att-modal-overlay" id="lateDetailsModalOverlay">
+      <div class="att-modal" style="max-width: 650px;">
+        <div class="att-modal-header">
+          <h3 id="lateDetailsTitle">Détail des Retards & Écarts</h3>
+          <button type="button" class="att-modal-close" onclick="closeLateDetailsModal()">&times;</button>
+        </div>
+        <div class="att-modal-body" style="padding: 1.25rem 1.4rem;">
+          <p id="lateDetailsSubtitle" style="font-size: 0.8rem; color: #64748b; margin-bottom: 1rem;"></p>
+          <div class="att-table-container" style="max-height: 380px; overflow-y: auto; margin-bottom: 0;">
+            <table class="att-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Arrivée Réelle</th>
+                  <th>Retard Arrivée</th>
+                  <th>Pause Réelle</th>
+                  <th>Écart Pause</th>
+                  <th>Retard Cumulé</th>
+                </tr>
+              </thead>
+              <tbody id="lateDetailsTableBody">
+                <!-- Rempli dynamiquement -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="att-modal-footer">
+          <button type="button" class="btn-att-primary" onclick="closeLateDetailsModal()">Fermer</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- LOGIQUE JAVASCRIPT GLOBALE -->
@@ -2040,6 +3106,10 @@
         document.getElementById('view-contrat').classList.add('active');
         document.getElementById('tab-contrat').classList.add('active');
         updateContract();
+      } else if (serviceKey === 'pointage') {
+        document.getElementById('view-pointage').classList.add('active');
+        document.getElementById('tab-pointage').classList.add('active');
+        initAttendanceModule();
       } else {
         document.getElementById('view-bulletins').classList.add('active');
         document.getElementById('tab-bulletins').classList.add('active');
@@ -2619,8 +3689,1159 @@
       if (activeView && activeView.id === 'view-contrat') {
         const nomPrenom = document.getElementById('nom_prenom').value.trim();
         document.title = nomPrenom ? ('CDI AIM - ' + nomPrenom) : 'CDI AIM';
+      } else if (activeView && activeView.id === 'view-pointage') {
+        document.title = 'Feuille_Pointage_RH_' + currentDailyDate;
       }
     });
+
+    /* ==========================================================================
+       MODULE 3 : SUIVI DES PRÉSENCES, HORAIRES ET RETARDS (RH 3 - JAVASCRIPT)
+       ========================================================================== */
+    const ATT_STORAGE_KEY = 'bb_rh_attendance_db_v1';
+    let attState = {
+      employees: [],
+      attendance: {}
+    };
+
+    let currentDailyDate = new Date().toISOString().slice(0, 10);
+    let activeAttSubtab = 'dashboard';
+    let attendanceInitialized = false;
+
+    // Données d'exemple initiales représentatives (Entreprise AIM HR / Talent Force)
+    const SEED_EMPLOYEES = [
+      {
+        id: 'emp-1',
+        nom: 'BENNANI',
+        prenom: 'Sara',
+        matricule: 'AIM-010',
+        poste: 'Chargée de Recrutement Senior',
+        daysOfWeek: [1, 2, 3, 4, 5],
+        normalArrival: '09:00',
+        normalDeparture: '18:00',
+        lunchStart: '12:30',
+        lunchEnd: '13:30'
+      },
+      {
+        id: 'emp-2',
+        nom: 'TAZI',
+        prenom: 'Karim',
+        matricule: 'AIM-014',
+        poste: 'Ingénieur QA & Tests',
+        daysOfWeek: [1, 2, 3, 4, 5],
+        normalArrival: '09:00',
+        normalDeparture: '18:00',
+        lunchStart: '13:00',
+        lunchEnd: '14:00'
+      },
+      {
+        id: 'emp-3',
+        nom: 'EL AMRANI',
+        prenom: 'Yasmine',
+        matricule: 'AIM-019',
+        poste: 'Responsable Administration du Personnel',
+        daysOfWeek: [1, 2, 3, 4, 5],
+        normalArrival: '08:30',
+        normalDeparture: '17:30',
+        lunchStart: '12:30',
+        lunchEnd: '13:30'
+      },
+      {
+        id: 'emp-4',
+        nom: 'IDRISSI',
+        prenom: 'Omar',
+        matricule: 'AIM-007',
+        poste: 'Lead Développeur Fullstack',
+        daysOfWeek: [1, 2, 3, 4, 5],
+        normalArrival: '09:00',
+        normalDeparture: '18:00',
+        lunchStart: '12:30',
+        lunchEnd: '13:30'
+      },
+      {
+        id: 'emp-5',
+        nom: 'MANSOURI',
+        prenom: 'Fatima-Zahra',
+        matricule: 'AIM-022',
+        poste: 'Assistante Ressources Humaines',
+        daysOfWeek: [1, 2, 3, 4, 5, 6],
+        normalArrival: '09:00',
+        normalDeparture: '18:00',
+        lunchStart: '12:30',
+        lunchEnd: '13:30'
+      }
+    ];
+
+    function initAttendanceModule() {
+      if (attendanceInitialized) {
+        renderCurrentAttSubtab();
+        return;
+      }
+
+      loadAttendanceState();
+      initMonthlySelectors();
+
+      const picker = document.getElementById('daily-date-picker');
+      if (picker) {
+        picker.value = currentDailyDate;
+      }
+
+      setupDaysCheckboxListeners();
+      attendanceInitialized = true;
+      renderCurrentAttSubtab();
+    }
+
+    function loadAttendanceState() {
+      try {
+        const raw = localStorage.getItem(ATT_STORAGE_KEY);
+        if (raw) {
+          attState = JSON.parse(raw);
+        }
+      } catch (e) {
+        console.error('Erreur chargement données pointage :', e);
+      }
+
+      if (!attState.employees || attState.employees.length === 0) {
+        attState.employees = JSON.parse(JSON.stringify(SEED_EMPLOYEES));
+        seedDemoAttendanceData();
+        saveAttendanceState();
+      }
+    }
+
+    function saveAttendanceState() {
+      try {
+        localStorage.setItem(ATT_STORAGE_KEY, JSON.stringify(attState));
+        showSaveToast();
+      } catch (e) {
+        console.error('Erreur sauvegarde pointage :', e);
+      }
+    }
+
+    function showSaveToast() {
+      const toast = document.getElementById('att-save-toast');
+      if (toast) {
+        toast.classList.add('visible');
+        clearTimeout(toast._timeout);
+        toast._timeout = setTimeout(() => {
+          toast.classList.remove('visible');
+        }, 1800);
+      }
+    }
+
+    function seedDemoAttendanceData() {
+      if (!attState.attendance) attState.attendance = {};
+      const today = new Date();
+
+      // Génération de 5 jours de données récentes pour avoir des stats vivantes
+      for (let i = 4; i >= 0; i--) {
+        const d = new Date(today);
+        d.setDate(d.getDate() - i);
+        const dateStr = d.toISOString().slice(0, 10);
+        const dayOfWeek = d.getDay();
+        if (dayOfWeek === 0) continue; // dimanche sauté
+
+        if (!attState.attendance[dateStr]) {
+          attState.attendance[dateStr] = {};
+        }
+
+        attState.employees.forEach((emp, idx) => {
+          if (!emp.daysOfWeek.includes(dayOfWeek)) return;
+
+          if (idx === 0) {
+            // Sara : ponctuelle
+            attState.attendance[dateStr][emp.id] = {
+              status: 'present',
+              arrival: emp.normalArrival,
+              lunchOut: emp.lunchStart,
+              lunchIn: emp.lunchEnd,
+              departure: emp.normalDeparture
+            };
+          } else if (idx === 1) {
+            // Karim : 18 min de retard à l'arrivée
+            attState.attendance[dateStr][emp.id] = {
+              status: 'present',
+              arrival: addMinutesToTime(emp.normalArrival, 18),
+              lunchOut: emp.lunchStart,
+              lunchIn: emp.lunchEnd,
+              departure: emp.normalDeparture
+            };
+          } else if (idx === 2) {
+            // Yasmine : ponctuelle
+            attState.attendance[dateStr][emp.id] = {
+              status: 'present',
+              arrival: emp.normalArrival,
+              lunchOut: emp.lunchStart,
+              lunchIn: emp.lunchEnd,
+              departure: emp.normalDeparture
+            };
+          } else if (idx === 3) {
+            // Omar : présent avec 15 min de pause supplémentaire
+            attState.attendance[dateStr][emp.id] = {
+              status: 'present',
+              arrival: emp.normalArrival,
+              lunchOut: emp.lunchStart,
+              lunchIn: addMinutesToTime(emp.lunchEnd, 15),
+              departure: emp.normalDeparture
+            };
+          } else if (idx === 4) {
+            // Fatima-Zahra : présent ou en congé
+            if (i === 1) {
+              attState.attendance[dateStr][emp.id] = { status: 'conge', arrival: '', lunchOut: '', lunchIn: '', departure: '' };
+            } else {
+              attState.attendance[dateStr][emp.id] = {
+                status: 'present',
+                arrival: emp.normalArrival,
+                lunchOut: emp.lunchStart,
+                lunchIn: emp.lunchEnd,
+                departure: emp.normalDeparture
+              };
+            }
+          }
+        });
+      }
+    }
+
+    /* ==========================================================================
+       NAVIGATION ENTRE SOUS-ONGLETS RH 3
+       ========================================================================== */
+    function switchAttSubtab(subtabKey) {
+      activeAttSubtab = subtabKey;
+      document.querySelectorAll('.att-subtab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.att-subtab-pane').forEach(p => p.classList.remove('active'));
+
+      const activeBtn = document.getElementById('btn-subtab-' + subtabKey);
+      const activePane = document.getElementById('att-pane-' + subtabKey);
+
+      if (activeBtn) activeBtn.classList.add('active');
+      if (activePane) activePane.classList.add('active');
+
+      renderCurrentAttSubtab();
+    }
+
+    function renderCurrentAttSubtab() {
+      if (activeAttSubtab === 'dashboard') {
+        renderDashboard();
+      } else if (activeAttSubtab === 'daily') {
+        renderDailyAttendance();
+      } else if (activeAttSubtab === 'employees') {
+        renderEmployeesList();
+      } else if (activeAttSubtab === 'monthly') {
+        renderMonthlyReport();
+      }
+    }
+
+    /* ==========================================================================
+       CALCULS AUTOMATIQUES DES HORAIRES ET DES RETARDS
+       ========================================================================== */
+    function timeToMinutes(timeStr) {
+      if (!timeStr || typeof timeStr !== 'string' || !timeStr.includes(':')) return null;
+      const parts = timeStr.trim().split(':');
+      const h = parseInt(parts[0], 10);
+      const m = parseInt(parts[1], 10);
+      if (isNaN(h) || isNaN(m)) return null;
+      return h * 60 + m;
+    }
+
+    function minutesToTime(totalMin) {
+      if (totalMin === null || isNaN(totalMin)) return '';
+      const h = Math.floor(totalMin / 60) % 24;
+      const m = totalMin % 60;
+      return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}`;
+    }
+
+    function addMinutesToTime(timeStr, minsToAdd) {
+      const base = timeToMinutes(timeStr);
+      if (base === null) return timeStr;
+      return minutesToTime(base + minsToAdd);
+    }
+
+    function formatDelayString(mins) {
+      if (!mins || mins <= 0) return '0 min';
+      if (mins < 60) return `${mins} min`;
+      const h = Math.floor(mins / 60);
+      const m = mins % 60;
+      return m > 0 ? `${h}h ${m}m (${mins} min)` : `${h}h (${mins} min)`;
+    }
+
+    function calculateEmployeeDelay(emp, record) {
+      if (!record || record.status !== 'present') {
+        return {
+          status: record ? record.status : 'non_defini',
+          delayArrival: 0,
+          delayLunch: 0,
+          earlyDeparture: 0,
+          totalDelay: 0,
+          isLate: false
+        };
+      }
+
+      const normArr = timeToMinutes(emp.normalArrival || '09:00');
+      const normDep = timeToMinutes(emp.normalDeparture || '18:00');
+      const normLStart = timeToMinutes(emp.lunchStart || '12:30');
+      const normLEnd = timeToMinutes(emp.lunchEnd || '13:30');
+      const normLunchDur = (normLStart !== null && normLEnd !== null) ? Math.max(0, normLEnd - normLStart) : 60;
+
+      // 1. Comparaison Heure d'Arrivée Prévue vs Heure Réelle
+      let delayArrival = 0;
+      if (record.arrival) {
+        const actArr = timeToMinutes(record.arrival);
+        if (actArr !== null && normArr !== null && actArr > normArr) {
+          delayArrival = actArr - normArr;
+        }
+      }
+
+      // 2. Dépassement Pause Déjeuner
+      let delayLunch = 0;
+      if (record.lunchOut && record.lunchIn) {
+        const actLOut = timeToMinutes(record.lunchOut);
+        const actLIn = timeToMinutes(record.lunchIn);
+        if (actLOut !== null && actLIn !== null && actLIn > actLOut) {
+          const actLunchDur = actLIn - actLOut;
+          if (actLunchDur > normLunchDur) {
+            delayLunch = actLunchDur - normLunchDur;
+          }
+        }
+      }
+
+      // 3. Départ Anticipé
+      let earlyDeparture = 0;
+      if (record.departure) {
+        const actDep = timeToMinutes(record.departure);
+        if (actDep !== null && normDep !== null && actDep < normDep) {
+          earlyDeparture = normDep - actDep;
+        }
+      }
+
+      const totalDelay = delayArrival + delayLunch + earlyDeparture;
+
+      return {
+        status: 'present',
+        delayArrival,
+        delayLunch,
+        earlyDeparture,
+        totalDelay,
+        isLate: totalDelay > 0
+      };
+    }
+
+    /* ==========================================================================
+       1. TABLEAU DE BORD (DASHBOARD)
+       ========================================================================== */
+    function renderDashboard() {
+      const todayStr = currentDailyDate;
+      const todayDate = new Date(todayStr + 'T00:00:00');
+      const dayOfWeek = todayDate.getDay();
+
+      const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const formattedDate = todayDate.toLocaleDateString('fr-FR', options);
+      const dashDateLbl = document.getElementById('dash-current-date-lbl');
+      if (dashDateLbl) dashDateLbl.textContent = formattedDate;
+
+      const dailyRecords = (attState.attendance && attState.attendance[todayStr]) ? attState.attendance[todayStr] : {};
+
+      let scheduledCount = 0;
+      let presentCount = 0;
+      let absentCount = 0;
+      let leaveCount = 0;
+      let lateCount = 0;
+      let totalLateMinutes = 0;
+      const lateEmployeesList = [];
+
+      attState.employees.forEach(emp => {
+        const isScheduled = emp.daysOfWeek.includes(dayOfWeek);
+        if (isScheduled) scheduledCount++;
+
+        const rec = dailyRecords[emp.id] || { status: isScheduled ? 'present' : 'conge', arrival: emp.normalArrival, lunchOut: emp.lunchStart, lunchIn: emp.lunchEnd, departure: emp.normalDeparture };
+        const delayInfo = calculateEmployeeDelay(emp, rec);
+
+        if (rec.status === 'present') {
+          presentCount++;
+          if (delayInfo.isLate) {
+            lateCount++;
+            totalLateMinutes += delayInfo.totalDelay;
+            lateEmployeesList.push({
+              emp,
+              delayInfo
+            });
+          }
+        } else if (rec.status === 'absent') {
+          absentCount++;
+        } else if (rec.status === 'conge') {
+          leaveCount++;
+        }
+      });
+
+      const totalStaff = attState.employees.length;
+      const presentRate = scheduledCount > 0 ? Math.round((presentCount / scheduledCount) * 100) : 0;
+      const lateRate = presentCount > 0 ? Math.round((lateCount / presentCount) * 100) : 0;
+
+      // Mise à jour des cartes KPI
+      document.getElementById('kpi-scheduled-count').textContent = scheduledCount;
+      document.getElementById('kpi-total-staff').textContent = `sur ${totalStaff} collaborateurs enregistrés`;
+
+      document.getElementById('kpi-present-count').textContent = `${presentCount} / ${scheduledCount}`;
+      document.getElementById('kpi-present-rate').textContent = `${presentRate}% de présence effective`;
+
+      document.getElementById('kpi-absent-count').textContent = absentCount + leaveCount;
+      document.getElementById('kpi-leave-detail').textContent = `${absentCount} absent(s) • ${leaveCount} en congé`;
+
+      document.getElementById('kpi-late-count').textContent = lateCount;
+      document.getElementById('kpi-late-rate').textContent = `${lateRate}% des présents ont un retard`;
+
+      document.getElementById('kpi-late-minutes').textContent = `${totalLateMinutes} min`;
+      const lateHours = Math.floor(totalLateMinutes / 60);
+      const lateRemain = totalLateMinutes % 60;
+      document.getElementById('kpi-late-hours').textContent = `Équivalent à ${lateHours}h ${String(lateRemain).padStart(2, '0')}m`;
+
+      // Alertes retards
+      const alertsContainer = document.getElementById('att-dashboard-alerts');
+      if (alertsContainer) {
+        if (lateEmployeesList.length > 0) {
+          const names = lateEmployeesList.map(item => `<strong>${item.emp.prenom} ${item.emp.nom}</strong> (+${item.delayInfo.totalDelay} min)`).join(', ');
+          alertsContainer.innerHTML = `
+            <div class="att-alert-box">
+              <div>
+                <div class="att-alert-title">⚠️ Attention : ${lateEmployeesList.length} retard(s) constaté(s) aujourd'hui</div>
+                <div class="att-alert-desc">Collaborateurs en écart horaire : ${names}</div>
+              </div>
+              <button type="button" class="btn-att-secondary" onclick="switchAttSubtab('daily')">Corriger / Valider le pointage</button>
+            </div>
+          `;
+        } else {
+          alertsContainer.innerHTML = `
+            <div class="att-alert-box alert-success">
+              <div>
+                <div class="att-alert-title" style="color: #065f46;">✓ Ponctualité exemplaire</div>
+                <div class="att-alert-desc">Aucun retard ni écart anormal détecté pour la journée du ${formattedDate}.</div>
+              </div>
+            </div>
+          `;
+        }
+      }
+
+      // Remplissage du tableau résumé du dashboard
+      const tbody = document.getElementById('dash-summary-table-body');
+      if (tbody) {
+        tbody.innerHTML = '';
+        if (attState.employees.length === 0) {
+          tbody.innerHTML = `<tr><td colspan="7" style="text-align:center; padding: 2rem; color: #64748b;">Aucun collaborateur dans le référentiel. Ajoutez votre premier employé.</td></tr>`;
+          return;
+        }
+
+        attState.employees.forEach(emp => {
+          const rec = dailyRecords[emp.id] || { status: 'present', arrival: emp.normalArrival, lunchOut: emp.lunchStart, lunchIn: emp.lunchEnd, departure: emp.normalDeparture };
+          const delay = calculateEmployeeDelay(emp, rec);
+
+          let statusBadge = '';
+          if (rec.status === 'present') {
+            statusBadge = '<span class="badge-att present">● Présent</span>';
+          } else if (rec.status === 'absent') {
+            statusBadge = '<span class="badge-att absent">✕ Absent</span>';
+          } else {
+            statusBadge = '<span class="badge-att conge">🏖 En Congé</span>';
+          }
+
+          let delayBadge = '';
+          if (rec.status !== 'present') {
+            delayBadge = '<span style="color:#64748b; font-size: 0.76rem;">Non applicable</span>';
+          } else if (delay.totalDelay === 0) {
+            delayBadge = '<span class="badge-att ontime">✓ À l\'heure (0 min)</span>';
+          } else if (delay.totalDelay <= 15) {
+            delayBadge = `<span class="badge-att late">⚠️ Retard : +${delay.totalDelay} min</span>`;
+          } else {
+            delayBadge = `<span class="badge-att critical-late">⛔ Retard majeur : +${delay.totalDelay} min</span>`;
+          }
+
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${emp.nom}</strong> ${emp.prenom}</td>
+            <td><span style="font-size:0.75rem; color:#64748b;">${emp.poste}</span></td>
+            <td><code class="time-slot-preview">${emp.normalArrival} - ${emp.normalDeparture}</code></td>
+            <td>${statusBadge}</td>
+            <td><strong>${rec.status === 'present' ? (rec.arrival || '-') : '-'}</strong></td>
+            <td><span style="font-size:0.75rem; color:#475569;">${rec.status === 'present' ? (rec.lunchOut + ' → ' + rec.lunchIn) : '-'}</span></td>
+            <td>${delayBadge}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+    }
+
+    /* ==========================================================================
+       2. SUIVI QUOTIDIEN DES PRÉSENCES (POINTAGE INTERACTIF)
+       ========================================================================== */
+    function setDailyDateToday() {
+      currentDailyDate = new Date().toISOString().slice(0, 10);
+      const picker = document.getElementById('daily-date-picker');
+      if (picker) picker.value = currentDailyDate;
+      renderDailyAttendance();
+    }
+
+    function changeDailyDate(offsetDays) {
+      const cur = new Date(currentDailyDate + 'T00:00:00');
+      cur.setDate(cur.getDate() + offsetDays);
+      currentDailyDate = cur.toISOString().slice(0, 10);
+      const picker = document.getElementById('daily-date-picker');
+      if (picker) picker.value = currentDailyDate;
+      renderDailyAttendance();
+    }
+
+    function onDailyDateChange() {
+      const picker = document.getElementById('daily-date-picker');
+      if (picker && picker.value) {
+        currentDailyDate = picker.value;
+        renderDailyAttendance();
+      }
+    }
+
+    function getDailyRecord(dateStr, empId) {
+      if (!attState.attendance) attState.attendance = {};
+      if (!attState.attendance[dateStr]) attState.attendance[dateStr] = {};
+
+      if (!attState.attendance[dateStr][empId]) {
+        const emp = attState.employees.find(e => e.id === empId);
+        const dayOfWeek = new Date(dateStr + 'T00:00:00').getDay();
+        const isScheduled = emp ? emp.daysOfWeek.includes(dayOfWeek) : true;
+
+        attState.attendance[dateStr][empId] = {
+          status: isScheduled ? 'present' : 'conge',
+          arrival: emp ? emp.normalArrival : '09:00',
+          lunchOut: emp ? emp.lunchStart : '12:30',
+          lunchIn: emp ? emp.lunchEnd : '13:30',
+          departure: emp ? emp.normalDeparture : '18:00'
+        };
+      }
+      return attState.attendance[dateStr][empId];
+    }
+
+    function updateDailyAttendanceField(empId, field, value) {
+      const rec = getDailyRecord(currentDailyDate, empId);
+      rec[field] = value;
+      saveAttendanceState();
+      updateDailyRowVisuals(empId);
+    }
+
+    function markAllPresentOnTime() {
+      const todayDate = new Date(currentDailyDate + 'T00:00:00');
+      const dayOfWeek = todayDate.getDay();
+
+      if (!attState.attendance) attState.attendance = {};
+      if (!attState.attendance[currentDailyDate]) attState.attendance[currentDailyDate] = {};
+
+      attState.employees.forEach(emp => {
+        const isScheduled = emp.daysOfWeek.includes(dayOfWeek);
+        attState.attendance[currentDailyDate][emp.id] = {
+          status: isScheduled ? 'present' : 'conge',
+          arrival: emp.normalArrival,
+          lunchOut: emp.lunchStart,
+          lunchIn: emp.lunchEnd,
+          departure: emp.normalDeparture
+        };
+      });
+
+      saveAttendanceState();
+      renderDailyAttendance();
+    }
+
+    function quickClockEmployeeNow(empId) {
+      const now = new Date();
+      const timeStr = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
+      const rec = getDailyRecord(currentDailyDate, empId);
+      rec.status = 'present';
+
+      if (!rec.arrival || rec.arrival === '09:00') {
+        rec.arrival = timeStr;
+      } else if (!rec.departure || rec.departure === '18:00') {
+        rec.departure = timeStr;
+      }
+
+      saveAttendanceState();
+      renderDailyAttendance();
+    }
+
+    function renderDailyAttendance() {
+      const tbody = document.getElementById('daily-attendance-tbody');
+      if (!tbody) return;
+
+      tbody.innerHTML = '';
+      if (attState.employees.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 2.5rem; color:#64748b;">Aucun collaborateur n'est enregistré. Rendez-vous dans l'onglet Référentiel Salariés pour en ajouter.</td></tr>`;
+        return;
+      }
+
+      attState.employees.forEach(emp => {
+        const rec = getDailyRecord(currentDailyDate, emp.id);
+        const tr = document.createElement('tr');
+        tr.id = `daily-row-${emp.id}`;
+
+        const isPresent = rec.status === 'present';
+        const disabledAttr = isPresent ? '' : 'disabled style="opacity: 0.45;"';
+
+        tr.innerHTML = `
+          <td>
+            <strong>${emp.nom}</strong> ${emp.prenom}
+            <div style="font-size:0.72rem; color:#64748b;">${emp.poste} ${emp.matricule ? '• ' + emp.matricule : ''}</div>
+          </td>
+          <td>
+            <div style="font-size:0.75rem; font-weight:600; color:var(--dark-navy);">Arrivée : <code>${emp.normalArrival}</code></div>
+            <div style="font-size:0.7rem; color:#64748b;">Pause : ${emp.lunchStart} - ${emp.lunchEnd}</div>
+            <div style="font-size:0.7rem; color:#64748b;">Départ : ${emp.normalDeparture}</div>
+          </td>
+          <td>
+            <select class="att-select-status" onchange="updateDailyAttendanceField('${emp.id}', 'status', this.value); renderDailyAttendance();">
+              <option value="present" ${rec.status === 'present' ? 'selected' : ''}>Présent</option>
+              <option value="absent" ${rec.status === 'absent' ? 'selected' : ''}>Absent</option>
+              <option value="conge" ${rec.status === 'conge' ? 'selected' : ''}>En Congé</option>
+            </select>
+          </td>
+          <td>
+            <input type="time" value="${rec.arrival || ''}" ${disabledAttr} onchange="updateDailyAttendanceField('${emp.id}', 'arrival', this.value)" />
+          </td>
+          <td>
+            <div style="display:flex; align-items:center; gap: 4px;">
+              <input type="time" title="Sortie déjeuner" value="${rec.lunchOut || ''}" ${disabledAttr} onchange="updateDailyAttendanceField('${emp.id}', 'lunchOut', this.value)" style="width: 80px;" />
+              <span style="color:#64748b;">→</span>
+              <input type="time" title="Retour déjeuner" value="${rec.lunchIn || ''}" ${disabledAttr} onchange="updateDailyAttendanceField('${emp.id}', 'lunchIn', this.value)" style="width: 80px;" />
+            </div>
+          </td>
+          <td>
+            <input type="time" value="${rec.departure || ''}" ${disabledAttr} onchange="updateDailyAttendanceField('${emp.id}', 'departure', this.value)" />
+          </td>
+          <td id="daily-delay-cell-${emp.id}">
+            <!-- Rempli par calculateEmployeeDelay -->
+          </td>
+          <td style="text-align: center;">
+            <button type="button" class="btn-att-secondary" style="padding: 4px 8px; font-size: 0.72rem;" onclick="quickClockEmployeeNow('${emp.id}')" title="Pointer l'heure actuelle du système">
+              ⏱ Heure
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+        updateDailyRowVisuals(emp.id);
+      });
+    }
+
+    function updateDailyRowVisuals(empId) {
+      const emp = attState.employees.find(e => e.id === empId);
+      if (!emp) return;
+
+      const rec = getDailyRecord(currentDailyDate, empId);
+      const delay = calculateEmployeeDelay(emp, rec);
+      const cell = document.getElementById(`daily-delay-cell-${empId}`);
+      if (!cell) return;
+
+      if (rec.status === 'absent') {
+        cell.innerHTML = '<span class="badge-att absent">✕ Absent (Journée non travaillée)</span>';
+        return;
+      }
+      if (rec.status === 'conge') {
+        cell.innerHTML = '<span class="badge-att conge">🏖 En Congé (Autorisé)</span>';
+        return;
+      }
+
+      let content = '';
+      if (delay.totalDelay === 0) {
+        content = '<span class="badge-att ontime">✓ Ponctuel (À l\'heure)</span>';
+      } else {
+        const badgeClass = delay.totalDelay > 15 ? 'badge-att critical-late' : 'badge-att late';
+        const parts = [];
+        if (delay.delayArrival > 0) parts.push(`Arrivée +${delay.delayArrival}m`);
+        if (delay.delayLunch > 0) parts.push(`Pause +${delay.delayLunch}m`);
+        if (delay.earlyDeparture > 0) parts.push(`Départ anticipé -${delay.earlyDeparture}m`);
+
+        content = `
+          <div style="display:flex; flex-direction:column; gap:3px;">
+            <span class="${badgeClass}">⚠️ Retard Total : +${delay.totalDelay} min</span>
+            <span style="font-size:0.7rem; color:#64748b;">${parts.join(' • ')}</span>
+          </div>
+        `;
+      }
+      cell.innerHTML = content;
+    }
+
+    function printDailyAttendance() {
+      window.print();
+    }
+
+    /* ==========================================================================
+       3. RÉFÉRENTIEL DU PERSONNEL & HORAIRES DE TRAVAIL
+       ========================================================================== */
+    function renderEmployeesList() {
+      const tbody = document.getElementById('employees-table-tbody');
+      const countBadge = document.getElementById('emp-count-badge');
+      const searchInput = document.getElementById('emp-search-input');
+      const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
+      if (!tbody) return;
+      tbody.innerHTML = '';
+
+      const filtered = attState.employees.filter(emp => {
+        if (!query) return true;
+        const full = `${emp.nom} ${emp.prenom} ${emp.poste} ${emp.matricule || ''}`.toLowerCase();
+        return full.includes(query);
+      });
+
+      if (countBadge) countBadge.textContent = `${filtered.length} collaborateur(s)`;
+
+      if (filtered.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="8" style="text-align:center; padding: 2rem; color:#64748b;">Aucun collaborateur correspondant à votre recherche.</td></tr>`;
+        return;
+      }
+
+      const dayNames = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
+
+      filtered.forEach(emp => {
+        const tr = document.createElement('tr');
+
+        // Génération des pilules de jours L M M J V S D
+        let daysPills = '<div style="display:flex;">';
+        [1, 2, 3, 4, 5, 6, 0].forEach(dIdx => {
+          const isActive = emp.daysOfWeek.includes(dIdx);
+          daysPills += `<span class="day-pill ${isActive ? 'active' : ''}">${dayNames[dIdx]}</span>`;
+        });
+        daysPills += '</div>';
+
+        tr.innerHTML = `
+          <td><strong>${emp.nom}</strong> ${emp.prenom}</td>
+          <td><code>${emp.matricule || '-'}</code></td>
+          <td><span style="font-weight:500;">${emp.poste}</span></td>
+          <td>${daysPills}</td>
+          <td><strong style="color:var(--dark-navy);">${emp.normalArrival}</strong></td>
+          <td><span style="font-size:0.78rem;">${emp.lunchStart} à ${emp.lunchEnd}</span></td>
+          <td><strong style="color:var(--dark-navy);">${emp.normalDeparture}</strong></td>
+          <td style="text-align: right; white-space: nowrap;">
+            <button type="button" class="btn-att-secondary" style="padding: 4px 8px; font-size: 0.72rem; margin-right: 4px;" onclick="openEmployeeModal('${emp.id}')">✏️ Modifier</button>
+            <button type="button" class="btn-att-secondary" style="padding: 4px 8px; font-size: 0.72rem; color:#b91c1c; border-color:rgba(239,68,68,0.3);" onclick="deleteEmployee('${emp.id}')">🗑️ Supprimer</button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function setupDaysCheckboxListeners() {
+      document.querySelectorAll('#emp-days-container .day-checkbox-label').forEach(label => {
+        const input = label.querySelector('input[type="checkbox"]');
+        if (input) {
+          label.classList.toggle('checked', input.checked);
+          input.addEventListener('change', () => {
+            label.classList.toggle('checked', input.checked);
+          });
+        }
+      });
+
+      const lunchS = document.getElementById('emp-lunch-start');
+      const lunchE = document.getElementById('emp-lunch-end');
+      if (lunchS && lunchE) {
+        const updateLunchPreview = () => {
+          const sMin = timeToMinutes(lunchS.value);
+          const eMin = timeToMinutes(lunchE.value);
+          const preview = document.getElementById('emp-lunch-duration-preview');
+          if (preview) {
+            if (sMin !== null && eMin !== null && eMin > sMin) {
+              const diff = eMin - sMin;
+              const h = Math.floor(diff / 60);
+              const m = diff % 60;
+              preview.textContent = `${h}h ${String(m).padStart(2, '0')}m (${diff} minutes)`;
+            } else {
+              preview.textContent = 'Durée invalide';
+            }
+          }
+        };
+        lunchS.addEventListener('input', updateLunchPreview);
+        lunchE.addEventListener('input', updateLunchPreview);
+      }
+    }
+
+    function openEmployeeModal(empId) {
+      const modal = document.getElementById('employeeModalOverlay');
+      const title = document.getElementById('employeeModalTitle');
+      const form = document.getElementById('employeeForm');
+      if (!modal || !form) return;
+
+      form.reset();
+
+      if (empId) {
+        const emp = attState.employees.find(e => e.id === empId);
+        if (emp) {
+          title.textContent = `Modifier le Collaborateur : ${emp.prenom} ${emp.nom}`;
+          document.getElementById('emp-id').value = emp.id;
+          document.getElementById('emp-nom').value = emp.nom;
+          document.getElementById('emp-prenom').value = emp.prenom;
+          document.getElementById('emp-poste').value = emp.poste;
+          document.getElementById('emp-matricule').value = emp.matricule || '';
+          document.getElementById('emp-normal-arrival').value = emp.normalArrival || '09:00';
+          document.getElementById('emp-normal-departure').value = emp.normalDeparture || '18:00';
+          document.getElementById('emp-lunch-start').value = emp.lunchStart || '12:30';
+          document.getElementById('emp-lunch-end').value = emp.lunchEnd || '13:30';
+
+          document.querySelectorAll('#emp-days-container input[type="checkbox"]').forEach(cb => {
+            cb.checked = emp.daysOfWeek.includes(parseInt(cb.value, 10));
+            cb.closest('.day-checkbox-label').classList.toggle('checked', cb.checked);
+          });
+        }
+      } else {
+        title.textContent = 'Nouveau Collaborateur & Horaires de Travail';
+        document.getElementById('emp-id').value = '';
+        document.querySelectorAll('#emp-days-container input[type="checkbox"]').forEach(cb => {
+          cb.checked = [1, 2, 3, 4, 5].includes(parseInt(cb.value, 10));
+          cb.closest('.day-checkbox-label').classList.toggle('checked', cb.checked);
+        });
+      }
+
+      modal.classList.add('visible');
+    }
+
+    function closeEmployeeModal() {
+      const modal = document.getElementById('employeeModalOverlay');
+      if (modal) modal.classList.remove('visible');
+    }
+
+    function saveEmployee(event) {
+      event.preventDefault();
+      const id = document.getElementById('emp-id').value;
+      const nom = document.getElementById('emp-nom').value.trim();
+      const prenom = document.getElementById('emp-prenom').value.trim();
+      const poste = document.getElementById('emp-poste').value.trim();
+      const matricule = document.getElementById('emp-matricule').value.trim();
+
+      const normalArrival = document.getElementById('emp-normal-arrival').value;
+      const normalDeparture = document.getElementById('emp-normal-departure').value;
+      const lunchStart = document.getElementById('emp-lunch-start').value;
+      const lunchEnd = document.getElementById('emp-lunch-end').value;
+
+      const checkedDays = [];
+      document.querySelectorAll('#emp-days-container input[type="checkbox"]:checked').forEach(cb => {
+        checkedDays.push(parseInt(cb.value, 10));
+      });
+
+      if (checkedDays.length === 0) {
+        alert('Veuillez sélectionner au moins un jour de travail habituel.');
+        return;
+      }
+
+      if (id) {
+        // Mise à jour
+        const index = attState.employees.findIndex(e => e.id === id);
+        if (index !== -1) {
+          attState.employees[index] = {
+            ...attState.employees[index],
+            nom,
+            prenom,
+            poste,
+            matricule,
+            normalArrival,
+            normalDeparture,
+            lunchStart,
+            lunchEnd,
+            daysOfWeek: checkedDays
+          };
+        }
+      } else {
+        // Création
+        const newId = 'emp-' + Date.now();
+        attState.employees.push({
+          id: newId,
+          nom,
+          prenom,
+          poste,
+          matricule,
+          normalArrival,
+          normalDeparture,
+          lunchStart,
+          lunchEnd,
+          daysOfWeek: checkedDays
+        });
+      }
+
+      saveAttendanceState();
+      closeEmployeeModal();
+      renderEmployeesList();
+      renderDashboard();
+    }
+
+    function deleteEmployee(empId) {
+      const emp = attState.employees.find(e => e.id === empId);
+      if (!emp) return;
+
+      if (confirm(`Confirmez-vous la suppression de ${emp.prenom} ${emp.nom} du référentiel ?`)) {
+        attState.employees = attState.employees.filter(e => e.id !== empId);
+        saveAttendanceState();
+        renderEmployeesList();
+        renderDashboard();
+      }
+    }
+
+    /* ==========================================================================
+       4. BILAN MENSUEL PAR COLLABORATEUR & EXPORTS
+       ========================================================================== */
+    function initMonthlySelectors() {
+      const monthSel = document.getElementById('monthly-month-select');
+      const yearSel = document.getElementById('monthly-year-select');
+      if (!monthSel || !yearSel) return;
+
+      const months = [
+        'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin',
+        'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'
+      ];
+
+      monthSel.innerHTML = '';
+      months.forEach((m, idx) => {
+        const opt = document.createElement('option');
+        opt.value = idx;
+        opt.textContent = m;
+        monthSel.appendChild(opt);
+      });
+
+      const now = new Date();
+      monthSel.value = now.getMonth();
+
+      yearSel.innerHTML = '';
+      const currentYear = now.getFullYear();
+      for (let y = currentYear - 1; y <= currentYear + 1; y++) {
+        const opt = document.createElement('option');
+        opt.value = y;
+        opt.textContent = y;
+        yearSel.appendChild(opt);
+      }
+      yearSel.value = currentYear;
+    }
+
+    function computeMonthlyData(targetYear, targetMonth) {
+      const daysInMonth = new Date(targetYear, targetMonth + 1, 0).getDate();
+      const perEmployee = {};
+
+      attState.employees.forEach(emp => {
+        perEmployee[emp.id] = {
+          emp,
+          scheduledDays: 0,
+          workedDays: 0,
+          absentDays: 0,
+          leaveDays: 0,
+          lateDaysCount: 0,
+          totalLateMinutes: 0,
+          lateDetails: []
+        };
+      });
+
+      let totalWorkdaysMonth = 0;
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dateObj = new Date(targetYear, targetMonth, d);
+        const dayOfWeek = dateObj.getDay();
+        const dateStr = `${targetYear}-${String(targetMonth + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+
+        const isStandardWorkday = (dayOfWeek >= 1 && dayOfWeek <= 5);
+        if (isStandardWorkday) totalWorkdaysMonth++;
+
+        const dayAttendance = (attState.attendance && attState.attendance[dateStr]) ? attState.attendance[dateStr] : null;
+
+        attState.employees.forEach(emp => {
+          const isEmpScheduled = emp.daysOfWeek.includes(dayOfWeek);
+          if (isEmpScheduled) {
+            perEmployee[emp.id].scheduledDays++;
+          }
+
+          if (dayAttendance && dayAttendance[emp.id]) {
+            const rec = dayAttendance[emp.id];
+            if (rec.status === 'present') {
+              perEmployee[emp.id].workedDays++;
+              const delay = calculateEmployeeDelay(emp, rec);
+              if (delay.isLate) {
+                perEmployee[emp.id].lateDaysCount++;
+                perEmployee[emp.id].totalLateMinutes += delay.totalDelay;
+                perEmployee[emp.id].lateDetails.push({
+                  dateStr,
+                  record: rec,
+                  delay
+                });
+              }
+            } else if (rec.status === 'absent') {
+              perEmployee[emp.id].absentDays++;
+            } else if (rec.status === 'conge') {
+              perEmployee[emp.id].leaveDays++;
+            }
+          }
+        });
+      }
+
+      return {
+        totalWorkdaysMonth,
+        perEmployee
+      };
+    }
+
+    function renderMonthlyReport() {
+      const monthSel = document.getElementById('monthly-month-select');
+      const yearSel = document.getElementById('monthly-year-select');
+      const tbody = document.getElementById('monthly-report-tbody');
+      if (!monthSel || !yearSel || !tbody) return;
+
+      const targetMonth = parseInt(monthSel.value, 10);
+      const targetYear = parseInt(yearSel.value, 10);
+
+      const result = computeMonthlyData(targetYear, targetMonth);
+      const { totalWorkdaysMonth, perEmployee } = result;
+
+      // KPIs globaux du mois
+      let totalWorkedAll = 0;
+      let totalAbsencesAll = 0;
+      let totalLatesCountAll = 0;
+      let totalLateMinutesAll = 0;
+
+      Object.values(perEmployee).forEach(item => {
+        totalWorkedAll += item.workedDays;
+        totalAbsencesAll += item.absentDays;
+        totalLatesCountAll += item.lateDaysCount;
+        totalLateMinutesAll += item.totalLateMinutes;
+      });
+
+      document.getElementById('month-kpi-workdays').textContent = totalWorkdaysMonth;
+      document.getElementById('month-kpi-worked').textContent = totalWorkedAll;
+      document.getElementById('month-kpi-absences').textContent = totalAbsencesAll;
+      document.getElementById('month-kpi-lates-count').textContent = totalLatesCountAll;
+      document.getElementById('month-kpi-total-minutes').textContent = `${totalLateMinutesAll} min`;
+
+      const hours = Math.floor(totalLateMinutesAll / 60);
+      const mins = totalLateMinutesAll % 60;
+      document.getElementById('month-kpi-total-hours').textContent = `Soit ${hours}h ${String(mins).padStart(2, '0')}m`;
+
+      // Tableau mensuel par salarié
+      tbody.innerHTML = '';
+      if (attState.employees.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="10" style="text-align:center; padding: 2rem; color:#64748b;">Aucun collaborateur enregistré.</td></tr>`;
+        return;
+      }
+
+      Object.values(perEmployee).forEach(item => {
+        const emp = item.emp;
+        const punctualityRate = item.workedDays > 0 ? 
+          Math.max(0, Math.round(((item.workedDays - item.lateDaysCount) / item.workedDays) * 100)) : 100;
+
+        let lateBadge = '';
+        if (item.totalLateMinutes === 0) {
+          lateBadge = '<span class="badge-att ontime">0 min (Impeccable)</span>';
+        } else if (item.totalLateMinutes <= 45) {
+          lateBadge = `<span class="badge-att late">⚠️ ${item.totalLateMinutes} min (${item.lateDaysCount} fois)</span>`;
+        } else {
+          lateBadge = `<span class="badge-att critical-late">⛔ ${formatDelayString(item.totalLateMinutes)}</span>`;
+        }
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><strong>${emp.nom}</strong> ${emp.prenom}</td>
+          <td><span style="font-size:0.75rem; color:#64748b;">${emp.poste}</span></td>
+          <td><strong>${item.scheduledDays}</strong> jours</td>
+          <td><span style="color:#059669; font-weight:700;">${item.workedDays}</span> jours</td>
+          <td><span style="color:${item.absentDays > 0 ? '#b91c1c' : '#64748b'}; font-weight:700;">${item.absentDays}</span></td>
+          <td><span style="color:var(--steel-blue); font-weight:600;">${item.leaveDays}</span></td>
+          <td><strong>${item.lateDaysCount}</strong></td>
+          <td>${lateBadge}</td>
+          <td>
+            <div style="font-weight:700; color:${punctualityRate >= 90 ? '#059669' : (punctualityRate >= 75 ? '#d97706' : '#dc2626')};">
+              ${punctualityRate}%
+            </div>
+          </td>
+          <td style="text-align: center;">
+            <button type="button" class="btn-att-secondary" style="padding: 4px 8px; font-size: 0.72rem;" onclick="viewEmployeeLateDetails('${emp.id}', ${targetYear}, ${targetMonth})">
+              🔍 Détails (${item.lateDetails.length})
+            </button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    function viewEmployeeLateDetails(empId, year, month) {
+      const emp = attState.employees.find(e => e.id === empId);
+      if (!emp) return;
+
+      const result = computeMonthlyData(year, month);
+      const data = result.perEmployee[empId];
+      if (!data) return;
+
+      const modal = document.getElementById('lateDetailsModalOverlay');
+      const title = document.getElementById('lateDetailsTitle');
+      const subtitle = document.getElementById('lateDetailsSubtitle');
+      const tbody = document.getElementById('lateDetailsTableBody');
+
+      if (!modal || !tbody) return;
+
+      const months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
+      title.textContent = `Retards & Écarts : ${emp.prenom} ${emp.nom}`;
+      subtitle.textContent = `Bilan du mois de ${months[month]} ${year} — Total : ${data.lateDaysCount} retard(s), Cumul : ${formatDelayString(data.totalLateMinutes)}`;
+
+      tbody.innerHTML = '';
+      if (data.lateDetails.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding: 1.5rem; color:#059669; font-weight:600;">Aucun retard enregistré sur cette période !</td></tr>`;
+      } else {
+        data.lateDetails.forEach(item => {
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td><strong>${item.dateStr}</strong></td>
+            <td><code>${item.record.arrival || '-'}</code> (prévu ${emp.normalArrival})</td>
+            <td><strong style="color:${item.delay.delayArrival > 0 ? '#b45309' : '#059669'};">+${item.delay.delayArrival} min</strong></td>
+            <td><span style="font-size:0.75rem;">${item.record.lunchOut || '-'} → ${item.record.lunchIn || '-'}</span></td>
+            <td><strong style="color:${item.delay.delayLunch > 0 ? '#b45309' : '#059669'};">+${item.delay.delayLunch} min</strong></td>
+            <td><span class="badge-att late">+${item.delay.totalDelay} min</span></td>
+          `;
+          tbody.appendChild(tr);
+        });
+      }
+
+      modal.classList.add('visible');
+    }
+
+    function closeLateDetailsModal() {
+      const modal = document.getElementById('lateDetailsModalOverlay');
+      if (modal) modal.classList.remove('visible');
+    }
+
+    function exportMonthlyCSV() {
+      const monthSel = document.getElementById('monthly-month-select');
+      const yearSel = document.getElementById('monthly-year-select');
+      if (!monthSel || !yearSel) return;
+
+      const targetMonth = parseInt(monthSel.value, 10);
+      const targetYear = parseInt(yearSel.value, 10);
+      const months = ['Janvier', 'Fevrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Decembre'];
+
+      const { totalWorkdaysMonth, perEmployee } = computeMonthlyData(targetYear, targetMonth);
+
+      // Création du CSV avec en-têtes compatibles Excel (séparateur point-virgule)
+      let csv = '\uFEFF'; // BOM UTF-8
+      csv += `Bilan Mensuel des Presences et Retards - ${months[targetMonth]} ${targetYear}\r\n`;
+      csv += `Jours Ouvrables du Mois;${totalWorkdaysMonth}\r\n\r\n`;
+      csv += `Matricule;Nom;Prenom;Fonction;Jours Theoriq;Jours Travailles;Absences;Conges;Nb Retards;Cumul Retards (min);Taux Ponctualite\r\n`;
+
+      Object.values(perEmployee).forEach(item => {
+        const emp = item.emp;
+        const rate = item.workedDays > 0 ? 
+          Math.max(0, Math.round(((item.workedDays - item.lateDaysCount) / item.workedDays) * 100)) + '%' : '100%';
+
+        const row = [
+          emp.matricule || '',
+          emp.nom,
+          emp.prenom,
+          emp.poste,
+          item.scheduledDays,
+          item.workedDays,
+          item.absentDays,
+          item.leaveDays,
+          item.lateDaysCount,
+          item.totalLateMinutes,
+          rate
+        ].map(val => `"${String(val).replace(/"/g, '""')}"`).join(';');
+
+        csv += row + '\r\n';
+      });
+
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const filename = `Bilan_Presences_Retards_${months[targetMonth]}_${targetYear}.csv`;
+      triggerDownload(blob, filename);
+    }
+
+    function printMonthlyReport() {
+      window.print();
+    }
   </script>
 </body>
 </html>
